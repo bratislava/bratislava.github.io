@@ -18,6 +18,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   projectName: "bratislava.github.io",
   organizationName: "bratislava",
+  deploymentBranch: "gh-pages",
   trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
