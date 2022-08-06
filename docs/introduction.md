@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-> 🔧 This site is under active development - if you'd like to contribute, get in touch via [email]((mailto:innovationteam@bratislava.sk)) or [github](https://github.com/bratislava/bratislava.github.io)
+> 🔧 This site is under active development - if you'd like to contribute, get in touch via [email](mailto:innovationteam@bratislava.sk) or [github](https://github.com/bratislava/bratislava.github.io)
 
 This site is maintained by the [Department of Innovation and Technology of the City of Bratislava](https://inovacie.bratislava.sk). We believe in making public-sector code open source, promoting [savings, collaboration, auditability and innovation](https://publiccode.eu).
 
