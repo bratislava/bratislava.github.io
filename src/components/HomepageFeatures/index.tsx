@@ -39,8 +39,19 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
-          🔧 work in progress, more to come...
+        <div>
+          <p>🔧 work in progress, more to come...</p>
+          <h3>Included projects</h3>
+          <p>
+            <a href="https://bratislava.sk">🏡 bratislava.sk</a>{" "}
+            <a href="https://github.com/braislava/bratislava.sk">(github)</a>
+            <br />
+            <a href="https://cdn-api.bratislava.sk/static-pages/greenary-care-map/index.html?lang=sk">
+              🌍 City maps
+            </a>{" "}
+            <a href="https://github.com/braislava/maps">(github)</a>
+            <br />
+          </p>
           {/* {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))} */}

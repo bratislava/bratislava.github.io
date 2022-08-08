@@ -2,6 +2,7 @@
   "name": "bratislava-github-io",
   "version": "0.0.0",
   "private": true,
+  "license": "EUPL-1.2",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
