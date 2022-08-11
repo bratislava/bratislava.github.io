@@ -16,8 +16,6 @@ https://grafana.bratislava.sk/d/NEYiLUzik/health-status
 
 There you can find results from health cron worker and metrics from our kubernetes cluster. So if some service is not working, have a look it there to see its status.
 
-If you would like to add/delete/change sources to health cron worker please see this docu: [here](../apps/nest/health-cron-worker.md)
-
 ## Installing plugins
 
 If you need install some plugins in Grafana you need to change it in helm settings, because otherwise your changes will not last long.

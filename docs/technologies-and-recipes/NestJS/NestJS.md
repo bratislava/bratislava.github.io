@@ -8,8 +8,7 @@ What is the nestjs structure, what plugins and decorators do we use and how do w
 
 ## Docs topics:
 
-- [Project Structure](./PorjectStructure.md)
-  - [run app & project.json](./ProjectJson.md)
+- [Project Structure](./ProjectStructure.md)
   - [module](./Module.md)
   - [controllers](./Controllers.md)
   - [services](./Services.md)
