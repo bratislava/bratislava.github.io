@@ -1,12 +1,6 @@
-[back](../NestJS.md)
-
 # Project Structure
 
 This part will show you, how to create basic structure of your NEST application. How to generate project and how to prepare folders and document structure. If you are familiar with nest after, this you can start programming. If not, you can check nest documentation https://docs.nestjs.com, or check other parts of this docs.
-
-## Project generator
-
-For generate project use [this](../../tools/generators/nest.md).
 
 ## File structure
 

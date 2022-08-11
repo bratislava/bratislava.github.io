@@ -74,5 +74,3 @@ images:
     newName: $REPOSITORY/nest-{{app-name}}
     newTag: $TAG
 ```
-
-_Note:_ more about kubernetes you can read [here](../../architecture/kubernetes/kubernetes.md)
