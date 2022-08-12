@@ -1,4 +1,4 @@
-# Syncing database between different environments
+# Sync Strapi database to different environment
 
 Below is a set of commands to copy production Strapi data to staging environment - can be modified for other similar tasks. If you need exact copy of database, you should scale down strapi & next deployments and drop & recreate database before loading the data.
 
@@ -10,7 +10,7 @@ Below is a set of commands to copy production Strapi data to staging environment
 
 # Step 1 - vpn
 
-sudo openfortivpn vpn.bratislava.sk:443 --username=martin.pinter --trusted-cert 249c03e8a78ee9b45b9f2afa2e13bd59da1384b7377d133fa0caff86af45b28d
+sudo openfortivpn vpn.bratislava.sk:443 --username=user.name --trusted-cert 249c03e8a78ee9b45b9f2afa2e13bd59da1384b7377d133fa0caff86af45b28d
 
 # Step 2 - kubectl login
 

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# About this section
+# Index
 
 This section contains the documentation & information for tasks concerning deployment and maintenance of our apps to our Kubernetes clusters (or elsewhere).
 
