@@ -41,7 +41,7 @@ Specifically, for APP_KEYS:
 APP_KEYS=$(openssl rand -base64 32),$(openssl rand -base64 32),$(openssl rand -base64 32),$(openssl rand -base64 32)
 ```
 
-This means the secret file will look something like this (replace the placeholder values with the openssl result *encoded once more into base64* - more details in [secrets docs](../deployment-and-infrastructure/secrets.md))):
+This means the secret file will look something like this (replace the placeholder values with the openssl result *encoded once more into base64* - more details in [secrets docs](../deployment-and-infrastructure/env-vars-and-secrets.md))):
 
 ```yml
 apiVersion: v1
