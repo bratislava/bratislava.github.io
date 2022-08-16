@@ -1,4 +1,6 @@
-# Manual Deployment
+# Deployment & Environments
+
+TODO CONTINUE HERE
 
 Most of our projects are set up to be dockerized and deployed into our Kubernetes infrastructure. This can be done semi-manually using out [bratiska-cli](https://github.com/bratislava/bratiska-cli) tool. You can find detailed manual & requirements in the [README](https://github.com/bratislava/bratiska-cli#readme), but most of the time all you need is:
 
