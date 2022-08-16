@@ -4,7 +4,7 @@ We're using Sentry to collect FE errors, as well as for FE/BE alerting.
 
 ## Authorization
 
-sentry-cli sends the sourcemaps to sentry.io during the build step. This means it needs `SENTRY_AUTH_TOKEN` available during this set - this token is set as `Sentry.AuthToken` pipeline secret variable (and can be read through the inovacie.bratislava Sentry account). To access (your account's) token go [here](https://sentry.io/settings/account/api/auth-tokens/). You can also use Sentry company-wide "Internal Integration" token, this is preferred for pipelines or otherwise shared build envs - you can find such token within the Sentry dashboard as well.
+sentry-cli sends the sourcemaps to sentry.io during the build step. This means it needs `SENTRY_AUTH_TOKEN` available during this set - this token is set as `Sentry.AuthToken` pipeline secret variable (and can be read through the inovacie.bratislava Sentry account). To access (your account's) token go [here](https://sentry.io/settings/account/api/auth-tokens/). You can also use Sentry company-wide "[Internal Integration](https://sentry.io/settings/bratislava-city-hall/developer-settings/pipeline-integrations-1f0400/)" token, this is preferred for pipelines or otherwise shared build envs - you can find such token within the Sentry dashboard as well.
 
 **Local builds on sentry-enabled projects will fail without SENTRY_AUTH_TOKEN set in your environment - when building locally, you need to set this env var.**
 
