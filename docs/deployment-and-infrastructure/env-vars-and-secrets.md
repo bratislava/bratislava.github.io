@@ -1,3 +1,11 @@
+# Environment variables & Secrets
+
+:::caution bratiska-cli 
+
+TODO CONTINUE HERE 
+
+:::
+
 # Secrets
 
 We are using `Sealed Secrets` https://github.com/bitnami-labs/sealed-secrets.
@@ -56,9 +64,9 @@ kubectl get secret --namespace=standalone nest-prisma-template-database-secret
 ```
 
 
-#### Database convention naming
+#### Database naming convention
 
-Please use our services as database name and user the project slug. In this case, we will use `nest-prisma-template`. And for passwords, use at least 16 characters long pass with random chars.
+Please use our services names (project-slugs) as database names and users. In this case, we will use `nest-prisma-template`. And for passwords, use at least 16 characters long pass with random chars.
 ```yml
 POSTGRES_DB: nest-prisma-template
 POSTGRES_USER: nest-prisma-template
