@@ -11,3 +11,16 @@ Most of our projects are set up to be dockerized and deployed into our Kubernete
 1. Docker Harbor access - can be granted [here](https://portal.azure.com/#view/Microsoft_AAD_IAM/ManagedAppMenuBlade/~/Users/objectId/7b1ee611-cf01-4179-a765-215ee291f687/appId/216af6db-a39f-44b3-94d1-fd5142f14e6a) (note - [OIADS_EMPLOYEES](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupDetailsMenuBlade/~/Members/groupId/48fcf79f-46c5-44fc-8608-70eb512f840c) are included by default)
 2. Kubernetes access - contact the IT department or this
 3. Github access
+
+## Harbor Policies
+
+As we have a somewhat limited space in our Harbor instance, all repositories are subjected to retention policy.  
+Currently, every project is entitled to 30 images altogether, split across different tags: 
+
+* 5 *latest* images with `prod*` tag
+* 5 *latest* images with `stag*` tag
+* 10 *latest* images with `dev*` tag
+* 10 *latest* images with **some** tag
+* Images without **any** tags will be removed
+
+The policy is ran once a day at midnight, so during the day you might push more then specified limits. Also, please note that `bratiska-cli` will automatically add `dev-latest`, `stage-latest` or `prod-latest` tags, so be careful when running production or staging pushes not to remove currently deployed production images.
