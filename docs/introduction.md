@@ -18,12 +18,7 @@ We intend to make many more of our projects open-source by the end of 2022 - sta
 
 This section is for developers / contractors contributing to our projects for the first time.
 
-You need the following installed locally:
-
-- [node v16](https://nodejs.org/en/)
-- [docker](https://www.docker.com/) or locally running [PostgreSQL](https://www.postgresql.org/)
-
-Each sub-project contains README which should get you up and running. Documentation site in progress.
+README of each project should contain, at minimum, requirements of what you need to have installed locally, steps to get development build running and steps to deploy the project. The rest of the project docs belongs to these pages.
 
 ### Editor setup
 

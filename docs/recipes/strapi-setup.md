@@ -1,6 +1,24 @@
-# Strapi
+#  Strapi initial setup
 
-##  Initial Strapi Project (& Deployment) setup
+## ENV_PATH setup
+
+Strapi takes [ENV_PAtH](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#strapi-s-environment-variables) environment variable to decide which .env file it should use - it's best to override the `"scripts"` section of `package.json` to look as follows:
+
+```
+...
+"scripts": {
+    "develop": "ENV_PATH='./.env.local' strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    ...
+  },
+...
+```
+
+This will allow you to easily maintain different dev and prod env vars inside the git repo - we usually keep .env.local outside of git and commit `env.development` file, which the devs are encouraged to copy into their own `.env.local` which they can override. This system is not perfect, but seems reasonable enough in a system like Strapi which, by default, accepts only a single `.env` config file at once.
+
+## Production JWT Secrets
 
 As of Strapi v4.3 (and unlikely to change in near future), the 'clean' Strapi init generates a few secrets for you into `.env` file - these are used as seeds to generate one-time tokens and thus the ones used in production shouldn't be stored in github.
 
@@ -36,6 +54,8 @@ data:
   APP_KEYS: YmFuYW5h
   JWT_SECRET: YmFuYW5h
 ```
+
+## Other 'production setup' files
 
 Other than that, your setup should include:
 
