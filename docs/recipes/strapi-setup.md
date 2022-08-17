@@ -18,6 +18,24 @@ Strapi takes [ENV_PAtH](https://docs.strapi.io/developer-docs/latest/setup-deplo
 
 This will allow you to easily maintain different dev and prod env vars inside the git repo - we usually keep .env.local outside of git and commit `env.development` file, which the devs are encouraged to copy into their own `.env.local` which they can override. This system is not perfect, but seems reasonable enough in a system like Strapi which, by default, accepts only a single `.env` config file at once.
 
+An example of `.env.local` file from `bratislava.sk` project:
+
+```
+HOST=0.0.0.0
+PORT=1337
+APP_KEYS=VivFhCHdok6Ui4H1yhF8DA==,fkXjik+gn+fRLqatGAE8QQ==,M8eRp3VNi4dzdfHOTBlT7w==,PODWh8urxrSZKWXWxiEV3w==
+API_TOKEN_SALT=ilrHJDUcrKxGMpxyBh32VA==
+ADMIN_JWT_SECRET=odOY9wudFDnl//bE+nVWAQ==
+JWT_SECRET=U4RUqp1ohkwtt6gRopMtdg==
+
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_NAME=strapi
+DATABASE_USERNAME=strapi
+DATABASE_PASSWORD=password
+DATABASE_SCHEMA=public
+```
+
 ## Production JWT Secrets
 
 As of Strapi v4.3 (and unlikely to change in near future), the 'clean' Strapi init generates a few secrets for you into `.env` file - these are used as seeds to generate one-time tokens and thus the ones used in production shouldn't be stored in github.
