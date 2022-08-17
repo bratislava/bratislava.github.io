@@ -66,6 +66,8 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: bratislava-strapi-internals-secret
+annotation:
+  sealedsecrets.bitnami.com/managed: "true"
 data:
   ADMIN_JWT_SECRET: YmFuYW5h
   API_TOKEN_SALT: YmFuYW5h
