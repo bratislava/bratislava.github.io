@@ -2,9 +2,9 @@
 
 ## ENV_PATH setup
 
-Strapi takes [ENV_PAtH](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#strapi-s-environment-variables) environment variable to decide which .env file it should use - it's best to override the `"scripts"` section of `package.json` to look as follows:
+Strapi takes [ENV_PATH](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#strapi-s-environment-variables) environment variable to decide which .env file it should use - it's best to override the `"scripts"` section of `package.json` to look as follows:
 
-```
+```json
 ...
 "scripts": {
     "develop": "ENV_PATH='./.env.local' strapi develop",

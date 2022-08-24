@@ -4,7 +4,7 @@ You'll need access to our [Azure Devops project](https://dev.azure.com/bratislav
 
 You can then use the [db-backup pipeline](https://dev.azure.com/bratislava-innovation/Inovacie/_build?definitionId=28) to browse recent backups on different k8s deployed projects. Each run produces an artifact in which you'll find the db dump.
 
-In all likelyhood, you'll be interested in the runs titled `<Env>_standalone`, where `<Env>` is the k8s cluster you are after.
+In all likelihood, you'll be interested in the runs titled `<Env>_standalone`, where `<Env>` is the k8s cluster you are after.
 
 Assuming you have:
   - postgres server running locally & psql cli tool installed
