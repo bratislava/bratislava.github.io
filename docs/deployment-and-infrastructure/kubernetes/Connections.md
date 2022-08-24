@@ -5,7 +5,7 @@ sidebar_position: 3
 # Connections
 
 This section briefly shows how to do some basic connecting to Service and PODs in kubernetes cluster through `kubectl` or kubernetes Lens.   
-As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](../Login.md).
+As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](./Login.md).
 
 ## How to connect to database
 
@@ -20,7 +20,7 @@ As stated you will obviously need access to our cluster. To login to specific cl
 
 ### kubectl
 
-You can also port forward directly through kubectl command by running
+You can also port forward directly through `kubectl` command by running
 
 ```bash
 kubectl port-forward service/anything-database-service 5432:5432
