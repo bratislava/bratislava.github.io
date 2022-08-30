@@ -4,6 +4,8 @@ We're using [GraphQL Codegen](https://www.graphql-code-generator.com/) setup to 
 
 We're using [graphql-request plugin](https://www.graphql-code-generator.com/plugins/typescript/typescript-graphql-request)
 
+> If you are joining an existing project and not setting up a new one, you can jump ahead to [Generating and using queries](#generating-and-using-queries)
+
 ## Project setup
 
 Decide where your `.graphql` files will live, and where your client & types should be generated. Usually we use `/graphql/index.ts` for the client and `/graphql/queries/**/*.graphql` for both queries and mutations. With this setup, our `codegen.yml` in our frontend (i.e. Nextjs) root looks like this:
@@ -64,7 +66,7 @@ export const client = getSdk(gql)
 
 ## Generating and using queries
 
-You need at least a single valid query among your graphql files for client to generate correctly. Check out [Exploring GraphQL Schema](./exploring-graphql-schema.md) to find a valid query for your server. Since most of our Strapi V4 instances have a 'pages' model, the following query to get the total amount of pages usually works:
+You need at least a single valid query among your graphql files for client to generate correctly. Check out [Exploring GraphQL Schema](#exploring-graphql-schema) to find a valid query for your server. Since most of our Strapi V4 instances have a 'pages' model, the following query to get the total amount of pages usually works:
 
 ```
 query TotalPages {
@@ -154,3 +156,10 @@ This can be dealt with differently (and often should be - so that one missing pi
 
 At the time of writing there is also apollo-next plugin - the reason we use graphql-request, which is more barebones, is because it did not exist when we were setting this up initially. Apollo-next may be worth a shot with some future project
 
+## Exploring GraphQL schema
+
+You can use [our fork](https://github.com/bratislava/graphiql-explorer-example) of the [OneGraph GraphiQL Explorer](https://github.com/OneGraph/graphiql-explorer-example) to browse any GraphQL endpoint. In our case it's usually an endpoint of a Strapi instance. The only thing our fork adds is easy configuration of the endpoint via `.env`.
+
+**[A quick example exploring SpaceX data here](https://api.spacex.land/graphql/)**
+
+You can use the left panel to easily explore through all of the options provided by the api, and use the params to control filtering/sorting/pagination.

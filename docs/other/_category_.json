@@ -1,6 +1,6 @@
 {
-  "label": "Kubernetes",
-  "position": 2,
+  "label": "Other",
+  "position": 10,
   "link": {
     "type": "generated-index"
   }

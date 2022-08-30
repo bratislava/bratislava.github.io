@@ -1,12 +1,6 @@
----
-sidebar_position: 7
----
+# Debugging k8s cluster connectivity to an outside service
 
-# Debuging
-
-## How to debug Kubernetes pod?
-
-Let's assume you want to check the pod for `next-city-library`.
+Let's assume you want to check if you can ping a service from the  `next-city-library` pod.
 
 1. ### Connect to proper Kubernetes cluster
 
