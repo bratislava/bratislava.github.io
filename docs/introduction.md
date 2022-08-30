@@ -34,6 +34,7 @@ If you're not familiar with any of these technologies:
 - [Strapi CMS](https://strapi.io/)
 - [GraphQL](https://graphql.org/), which we use for connecting Next to Strapi
 - [GraphQL Codegen](https://www.graphql-code-generator.com/), which we use to generate typesafe SDK from our GraphQL queries
+- [Meilisearch](https://www.meilisearch.com/), often connected to Strapi via [meilisearch-strapi plugin](https://github.com/meilisearch/strapi-plugin-meilisearch)
 - [Sentry](https://sentry.io/)
 
 Afterwards:
