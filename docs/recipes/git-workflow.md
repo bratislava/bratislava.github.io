@@ -1,5 +1,13 @@
 # Git workflow (committing, submitting & reviewing pull requests)
 
+To contribute to our project you will need a account on [GitHub](https://github.com/) and [git](https://git-scm.com/). Some of the systems (some of the *nix and Mac) already come with git pre-installed, which you can check by running 
+
+```bash
+git --version
+```
+
+If you don't have it installed you can follow these guides for [Linux/Unix](https://git-scm.com/download/linux) or [Mac](https://git-scm.com/download/mac). For windows, you can use [gitforwindows](https://gitforwindows.org/).
+
 ## Branches and environments
 
 We use a single trunk (`master`) from which feature branches are created. Master is what is regularly deployed to staging environment. Production builds are created for tagged commits, usually from master, but if a quick production fix is needed, the process is to branch-off at the last tagged commit and create new production tags on this new branch.
@@ -28,4 +36,4 @@ It is helpful to resolve (github) conversations you have started if you feel the
 
 Squash & merge into master. Liberal use of `rebase` for cleaning up your own feature branches (mainly if you tend to create and push work-in-progress commits) is encouraged. If your local commits are _way_ out of control, you might be required to do so before your PR is accepted (but this happens rarely).
 
-_Still, be carefull_ if someone else branches off one of your feature branches - to make his life easier, you should avoid rebasing, if possible, past the point they've branched at - at least until your work is ready to become a part of master.
+_Still, be careful_ if someone else branches off one of your feature branches - to make his life easier, you should avoid rebasing, if possible, past the point they've branched at - at least until your work is ready to become a part of master.

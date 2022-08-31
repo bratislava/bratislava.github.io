@@ -104,26 +104,62 @@ For example, if you need to set up the database name to `banana`, you need to ba
 
 
 The last thing is encrypting our secrets by kubeseal to be used on Kubernetes. You need to run this command that creates the file `database.secret.yml` where all our values are encrypted and safe to add to the repository.
+
+Before running this command be sure you are [logged](./kubernetes/Login.md) in right cluster `kubectl config use-context tkg-innov-<env>` (replace `<env>` with one of `dev`, `staging` or `prod`. Cluster you are logged in is used when generating secret. Regarding to this, if you are generating secret for more then one cluster you need to switch between clusters between each generation of secret.
+
 ```bash
 kubeseal --controller-name=sealed-secrets --scope=namespace-wide --namespace=standalone --format=yaml < database.yml > database.secret.yml 
 ```
 
 If you want to propagate a sealed secret to Kubernetes without a pipeline, you can run this command:
+
 ```bash
 kubectl create -f database.secret.yml
 ```
 
 If you already have a sealed secret in Kubernetes, you can update it with the command:
+
 ```bash
 kubectl apply -f database.secret.yml
 ```
+
 Usually, you get this kind of error: `Error from server (AlreadyExists): error when creating "database.secret.yml": sealedsecrets.bitnami.com "nest-Prisma-template-database-secret" already exists`
 
 If you want to check if your secret is there, you can run this command:
+
 ```bash
 kubectl get secret --namespace=standalone nest-prisma-template-database-secret
 ```
 
+After creating file with secret using previous commands, we need to erase previously added secret which shouldn't leak to end users (or be placed under source control).
+
+That's why we edit file including secret, in our case `database.yml`. Usualy we replace it with `<replace-with-base64-password>`. So before committing into source control, file should look like this:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: database-secret
+annotation:
+  sealedsecrets.bitnami.com/managed: "true"
+data:
+  POSTGRES_DB: <replace-with-base64-password>
+  POSTGRES_USER: <replace-with-base64-password>
+  POSTGRES_PASSWORD: <replace-with-base64-password>
+```
+
+To use this secret in k8 deployment you need to add secret name from file `database.yml` property `metadata.name` in our case, `database-secret` to `kubernetes/base/deployment.yml` into
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+        - image: ${IMAGE_TAG}
+          envFrom:
+            - secretRef:
+                name: ${BUILD_REPOSITORY_NAME}-database-secret
+```
 
 ### Database naming convention
 

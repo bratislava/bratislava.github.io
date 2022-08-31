@@ -23,9 +23,11 @@ kubectl config use-context tkg-innov-prod
 kubectl exec -t -n standalone bratislava-strapi-database-0 -c database -- sh -c "pg_dump -c -U strapi strapi > strapi-backup.sql"
 kubectl cp standalone/bratislava-strapi-database-0:/strapi-backup.sql ./strapi-backup.sql
 kubectl config use-context tkg-innov-staging
-kubectl config get-contexts
 
 # Checkpoint - recheck that you are in correct context! 
+
+kubectl config get-contexts
+
 # Step 4 - import dump
 
 kubectl cp ./strapi-backup.sql standalone/bratislava-strapi-database-0:/strapi-backup.sql
