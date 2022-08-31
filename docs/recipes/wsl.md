@@ -94,8 +94,7 @@ wget -qO- https://k8s.tanzu.bratislava.sk/wcp/plugin/linux-amd64/vsphere-plugin.
 sudo install -o root -g root -m 0755 kubectl-vsphere /usr/local/bin/kubectl-vsphere
 ```
 
-After this you should be able to log into our kubernetes cluster. You can test and login in by following our [Login guide](../deployment-and-infrastructure/kubernetes/Login.md).  
-More info about kubernetes can be found in our [kubernetes section](../deployment-and-infrastructure/kubernetes/).
+After this you should be able to log into our kubernetes cluster. You can test and login in by following our [Login guide](./kubernetes-lens-setup.md).
 
 ### `kubeseal`
 
@@ -108,7 +107,7 @@ wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.18.1/ku
 sudo install -o root -g root -m 0755 kubeseal /usr/local/bin/kubeseal
 ```
 
-You can read more about creating secrets [here](../deployment-and-infrastructure/env-vars-and-secrets.md).
+You can read more about creating secrets [here](./env-vars-and-secrets.md).
 
 ## Install `bratiska-cli`
 
@@ -151,4 +150,4 @@ After successful installation of `yarn` (to verify you can run `yarn --version`)
 [bratiska-cli installation instruction](https://github.com/bratislava/bratiska-cli#installation). Please, verify one more time that you have met all of the required [prerequisites](https://github.com/bratislava/bratiska-cli#prerequisites).
 
 Now you should have everything needed to [deploy](https://github.com/bratislava/bratiska-cli#deployment) your application through `bratiska-cli`.  
-To login to our cluster you can follow our [Login guide](../deployment-and-infrastructure/kubernetes/Login.md).
+To login to our cluster you can follow our [Login guide](./kubernetes-lens-setup.md).

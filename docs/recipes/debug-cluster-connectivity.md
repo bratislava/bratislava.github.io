@@ -5,7 +5,7 @@ Following is just a small example in our local context. Let's assume you want to
 
 1. ### Connect to proper Kubernetes cluster
 
-   In our case, we will connect to `tkg-innov-dev`. You can follow our [Login guide](./Login.md).
+   In our case, we will connect to `tkg-innov-dev`. You can follow our [Login guide](./kubernetes-lens-setup.md).
    To verify that you are correctly connected you can run
 
    ```bash

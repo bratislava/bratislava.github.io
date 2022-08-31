@@ -7,17 +7,16 @@ You can then use the [db-backup pipeline](https://dev.azure.com/bratislava-innov
 In all likelihood, you'll be interested in the runs titled `<Env>_standalone`, where `<Env>` is the k8s cluster you are after.
 
 Assuming you have:
-  - postgres server running locally & psql cli tool installed
-  - a user/role called `strapi` 
-  - a database `your_strapi_db`
-  
+
+- postgres server running locally & psql cli tool installed
+- a user/role called `strapi`
+- a database `your_strapi_db`
+
 you can load the dump `newest-db-dump.sql` like so:
 
 ```
 psql -h localhost -p 5432 -U strapi your_strapi_db < newest-db-dump.sql
 ```
-
-
 
 > It's not always necessary, but recommended, to have a role called `strapi` on your local Postgres server when doing this with a Strapi db dump - as the tables may reference role with this name directly. Alternative might be editing the dump and renaming the role referenced to one you have available locally.
 

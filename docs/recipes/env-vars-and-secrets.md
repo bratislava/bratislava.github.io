@@ -16,8 +16,8 @@ There are also build-time secrets - but the need for these is rare and we won't 
 Our applications run in k8s cluster but are typically built on a local machine or in pipelines. Therefore we distinguish between groups of environment variables based on when they are available to the application.
 
 - if it's **accessible on frontend** it's typically a **build time** variable (i.e. next.js preps the frontend bundle during build-time, despite it being also the one serving it run-time)
-- if it **configures** the behaviour of **the build itself**  it's a **build time** variable - these are usually set-up by the environment itself, and **super rare**. One example of build-time variable like this is the `SENTRY_AUTH_TOKEN` which is needed to upload source_maps - but this is usually configured either by using `.sentryrc` file or is taken from pipelines global config. Other typical one is `process.env.CI`, which is set by Github pipelines automatically
-- **everything else** is a **run time** variable - these can be accessed by server at runtime and typically includes secrets which shouldn't leak to end users (or be placed under source control) 
+- if it **configures** the behaviour of **the build itself** it's a **build time** variable - these are usually set-up by the environment itself, and **super rare**. One example of build-time variable like this is the `SENTRY_AUTH_TOKEN` which is needed to upload source_maps - but this is usually configured either by using `.sentryrc` file or is taken from pipelines global config. Other typical one is `process.env.CI`, which is set by Github pipelines automatically
+- **everything else** is a **run time** variable - these can be accessed by server at runtime and typically includes secrets which shouldn't leak to end users (or be placed under source control)
 
 ## Local development environment variables
 
@@ -39,9 +39,9 @@ Our nest.js tempalte configuration loads data from `.env` file in development - 
 
 Use `.env.production` for those common for all environments. Use the `.env.bratiska-cli-build.<env>` files for setup specific to environment.
 
-:::caution bratiska-cli 
+:::caution bratiska-cli
 
-Today `bratiska-cli` works by overriding `.env.production.local` file - your data stored in this file will be over-written on each build! 
+Today `bratiska-cli` works by overriding `.env.production.local` file - your data stored in this file will be over-written on each build!
 
 :::
 
@@ -55,7 +55,7 @@ We don't have a mechanism (or at the moment a need) to have or persist these.
 
 ## Run time environment variables
 
-These are the same for all frameworks and are stored in `.env` files in `kubernetes` directory of each project. There are a few options *where* to put this `.env` files, based on whether the config is global for all deployment environments, or only for some:
+These are the same for all frameworks and are stored in `.env` files in `kubernetes` directory of each project. There are a few options _where_ to put this `.env` files, based on whether the config is global for all deployment environments, or only for some:
 
 - use `/kubernetes/base/.env` for config common for all deplyments
 - use `/kubernetes/envs/<Env>/.env` for specific env, where `<Env>` is one of `Dev`, `Prod`, `Staging`
@@ -63,7 +63,7 @@ These are the same for all frameworks and are stored in `.env` files in `kuberne
 ## Secrets
 
 We are using `Sealed Secrets` https://github.com/bitnami-labs/sealed-secrets.
-To use a secret in your project, you have to install `kubeseal` if you haven`t installed it yet. 
+To use a secret in your project, you have to install `kubeseal` if you haven`t installed it yet.
 
 ```bash
 brew install kubeseal
@@ -102,13 +102,12 @@ data:
 
 For example, if you need to set up the database name to `banana`, you need to base64 encode this value. You can use an online base64 converter like https://www.base64encode.org and encode `banana` to `YmFuYW5h`. This has to happen even if the value you want to provide is base64 encoded! In such case you'll take your base64 encoded value and encode it again.
 
-
 The last thing is encrypting our secrets by kubeseal to be used on Kubernetes. You need to run this command that creates the file `database.secret.yml` where all our values are encrypted and safe to add to the repository.
 
-Before running this command be sure you are [logged](./kubernetes/Login.md) in right cluster `kubectl config use-context tkg-innov-<env>` (replace `<env>` with one of `dev`, `staging` or `prod`. Cluster you are logged in is used when generating secret. Regarding to this, if you are generating secret for more then one cluster you need to switch between clusters between each generation of secret.
+Before running this command be sure you are [logged](./kubernetes-lens-setup.md) in right cluster `kubectl config use-context tkg-innov-<env>` (replace `<env>` with one of `dev`, `staging` or `prod`. Cluster you are logged in is used when generating secret. Regarding to this, if you are generating secret for more then one cluster you need to switch between clusters between each generation of secret.
 
 ```bash
-kubeseal --controller-name=sealed-secrets --scope=namespace-wide --namespace=standalone --format=yaml < database.yml > database.secret.yml 
+kubeseal --controller-name=sealed-secrets --scope=namespace-wide --namespace=standalone --format=yaml < database.yml > database.secret.yml
 ```
 
 If you want to propagate a sealed secret to Kubernetes without a pipeline, you can run this command:
@@ -164,6 +163,7 @@ spec:
 ### Database naming convention
 
 Please use our services names (project-slugs) as database names and users. In this case, we will use `nest-prisma-template`. And for passwords, use at least 16 characters long pass with random chars.
+
 ```yml
 POSTGRES_DB: nest-prisma-template
 POSTGRES_USER: nest-prisma-template
@@ -177,7 +177,6 @@ POSTGRES_DB: bmVzdC1wcmlzbWEtdGVtcGxhdGU=
 POSTGRES_USER: bmVzdC1wcmlzbWEtdGVtcGxhdGU=
 POSTGRES_PASSWORD: TEJjZHNvMDhiJmFhc2QoY2syKmQhcA==
 ```
-
 
 ### Tips & Tricks
 
@@ -201,13 +200,13 @@ Sticking with our banana example, we create a `database-secret` with "banana" us
  | kubeseal --controller-name=sealed-secrets --scope=namespace-wide -o yaml --namespace=standalone > database.secret.yml
 ```
 
-*Note, you may need to install [`jq`](https://stedolan.github.io/jq/) by standard means like*
+_Note, you may need to install [`jq`](https://stedolan.github.io/jq/) by standard means like_
 
 ```bash
 brew install jq
 ```
 
-*or Debian based*
+_or Debian based_
 
 ```bash
 apt install jq

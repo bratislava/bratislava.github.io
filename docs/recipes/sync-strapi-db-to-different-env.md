@@ -24,7 +24,7 @@ kubectl exec -t -n standalone bratislava-strapi-database-0 -c database -- sh -c 
 kubectl cp standalone/bratislava-strapi-database-0:/strapi-backup.sql ./strapi-backup.sql
 kubectl config use-context tkg-innov-staging
 
-# Checkpoint - recheck that you are in correct context! 
+# Checkpoint - recheck that you are in correct context!
 
 kubectl config get-contexts
 

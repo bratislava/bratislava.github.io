@@ -1,7 +1,7 @@
 # Connecting to Kubernetes
 
-This section briefly shows how to do some basic connecting to Service and PODs in kubernetes cluster through `kubectl` or kubernetes Lens.   
-As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](./Login.md).
+This section briefly shows how to do some basic connecting to Service and PODs in kubernetes cluster through `kubectl` or kubernetes Lens.  
+As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](./kubernetes-lens-setup.md).
 
 ## How to connect to database
 
@@ -10,9 +10,9 @@ As stated you will obviously need access to our cluster. To login to specific cl
 1. Open Lens and on the left hand side panel navigate to `Network -> Services`.
 2. Find the Service that you want to connect to, usually something like `anything-database` or `anything-database-service`
 3. Click on right service and scroll down to find Connection section and under there should be a button `Forward`. Click it and choose your local free port
-4. Now your database should be accessible through localhost 
+4. Now your database should be accessible through localhost
 
-*Note: it is password free, but if you want to find password to db, go to secrets and find db secret for this db*
+_Note: it is password free, but if you want to find password to db, go to secrets and find db secret for this db_
 
 ### kubectl
 
@@ -32,7 +32,7 @@ You can follow this official video guide on extracting Logs https://www.youtube.
 
 ### kubectl
 
-You can get pod logs in you terminal with `kubectl` by running 
+You can get pod logs in you terminal with `kubectl` by running
 
 ```bash
 kubectl get logs my-pod
@@ -68,7 +68,7 @@ If you are running reasonable `*nix` terminal you can automate most of these tas
 
 ### Attach to POD within your terminal without knowing full name
 
-You can create a simple script, for example `k8att.sh`, that will *search* and attach to the right POD and it's container within your terminal. As this will search through available PODs you don't need to know full name to attach to as sometimes the PODs name can be long and in different namespaces.
+You can create a simple script, for example `k8att.sh`, that will _search_ and attach to the right POD and it's container within your terminal. As this will search through available PODs you don't need to know full name to attach to as sometimes the PODs name can be long and in different namespaces.
 
 ```bash
 #!/bin/bash
@@ -100,7 +100,7 @@ echo -e "Attaching to pod \033[0;32m'$POD_NAME'\033[0m, container \033[0;32m'$CO
 kubectl exec -i -t --namespace "$POD_NAMESPACE" "$POD_NAME" --container "$CONTAINER" -- sh -c "clear; (bash || ash || sh)"
 ```
 
-Then you just `chmod +x k8att.sh` and you can use it to attach. Sticking with our previous attach example, now to attach to a pod `"next-city-gallery-app-debug"` you can just do 
+Then you just `chmod +x k8att.sh` and you can use it to attach. Sticking with our previous attach example, now to attach to a pod `"next-city-gallery-app-debug"` you can just do
 
 ```bash
 ./k8att gallery-app-debug
