@@ -22,15 +22,15 @@ You can only do this with sufficient access rights - ask Innovations team or Bra
     - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-innov-dev -u {{username}}`
     - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-innov-staging -u {{username}}`
     - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-innov-prod -u {{username}}`
-    - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-master -u {{username}}` 
-       (optional, you don't need this, its only master cluster)
+    - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-master -u {{username}}`
+      (optional, you don't need this, its only master cluster)
 - open Lens and you should see clusters
 
 ## Tips & Tricks
 
-If you are running reasonable command line environment you can create aliases for these logins.   
+If you are running reasonable command line environment you can create aliases for these logins.
 
-For *nix based command line environment you can add these to your `~/.bash_aliases` or `~/.bashrc`. For example:
+For \*nix based command line environment you can add these to your `~/.bash_aliases` or `~/.bashrc`. For example:
 
 ```bash
 # k8 login aliases

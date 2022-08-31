@@ -1,6 +1,6 @@
 # Git workflow (committing, submitting & reviewing pull requests)
 
-To contribute to our project you will need a account on [GitHub](https://github.com/) and [git](https://git-scm.com/). Some of the systems (some of the *nix and Mac) already come with git pre-installed, which you can check by running 
+To contribute to our project you will need a account on [GitHub](https://github.com/) and [git](https://git-scm.com/). Some of the systems (some of the \*nix and Mac) already come with git pre-installed, which you can check by running
 
 ```bash
 git --version
