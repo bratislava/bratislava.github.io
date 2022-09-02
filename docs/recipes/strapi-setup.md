@@ -1,10 +1,10 @@
-#  Strapi initial setup
+# Strapi initial setup
 
 ## ENV_PATH setup
 
 Strapi takes [ENV_PATH](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/configurations/optional/environment.html#strapi-s-environment-variables) environment variable to decide which .env file it should use - it's best to override the `"scripts"` section of `package.json` to look as follows:
 
-```
+```json
 ...
 "scripts": {
     "develop": "ENV_PATH='./.env.local' strapi develop",
@@ -59,7 +59,7 @@ Specifically, for APP_KEYS:
 APP_KEYS=$(openssl rand -base64 32),$(openssl rand -base64 32),$(openssl rand -base64 32),$(openssl rand -base64 32)
 ```
 
-This means the secret file will look something like this (replace the placeholder values with the openssl result *encoded once more into base64* - more details in [secrets docs](./env-vars-and-secrets.md))):
+This means the secret file will look something like this (replace the placeholder values with the openssl result _encoded once more into base64_ - more details in [secrets docs](./env-vars-and-secrets.md))):
 
 ```yml
 apiVersion: v1
