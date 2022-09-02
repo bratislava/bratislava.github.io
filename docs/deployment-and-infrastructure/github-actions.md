@@ -1,7 +1,7 @@
 # Github actions
 
 ### Setup github actions for Next/Strapi project
-We have predefined actions for repetev pipelines so there is only one file which needs to be added to repo:
+We have predefined actions for repeated pipelines, so there is only one file that needs to be added to repo:
 
 Deploy version 1.0. (02.09.2022)
 ```yaml
@@ -150,9 +150,9 @@ jobs:
 There are defined 9 different jobs. We can split it to three categories:
 - deployment of `strapi` to `dev`, `staging`, `prod`
 - deployment of `next` to `dev`, `staging`, `prod`
-- deployment of whole stack `strapi` and `next`. This deployment deploy at first `strapi` and then `next`
+- deployment of whole stack `strapi` and `next`. This deployment deploys at first `strapi` and then `next`
 
-### How to deploy to different clusters? 
+### How to deploy to different clusters?
 
 #### dev
 For deployment `next` to `dev` you need to tag your commit in whatever branch with tag `dev-next*` which can be like `dev-next1.0`
@@ -193,17 +193,17 @@ deploy-dev:
 ```yaml
  if: needs.conditions.outputs.dev == 'true'
 ```
-this condition is checking if this deployment shoud be deployed. Conditions are sotred in repo `bratislava/github-actions`
+This condition is checking if this deployment shoud be deployed. Conditions are sotred in repo `bratislava/github-actions`
 
 ```yaml
     needs: [conditions, deploy-dev-strapi]
 ```
-as this job is deploing whole stack, then it needs to deploy first strapi `deploy-dev-strapi`. `conditions` are used in the `if` above
+as this job is deploying whole stack, then it needs to deploy first strapi `deploy-dev-strapi`. `conditions` are used in the `if` above
 
 ```yaml
     uses: bratislava/github-actions/.github/workflows/deploy-with-bratiska-cli.yml@stable
 ```
-for deployment we are using `bratiska-cli` which is handled by this action `deploy-with-bratiska-cli.yml`. `stable` means stable version of pipelines
+for deployment, we are using `bratiska-cli`, which is handled by this action `deploy-with-bratiska-cli.yml`. `stable` means the stable version of pipelines
 
 ```yaml
  with:
