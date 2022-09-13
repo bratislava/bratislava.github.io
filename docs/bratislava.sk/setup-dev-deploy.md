@@ -12,6 +12,14 @@ The following content types need to be indexed in the [meilisearch-strapi-plugin
 
 ![Meilisearch plugin screenshot](./assets/meili-plugin.png)
 
+### Meilisearch `MASTER_KEY` location
+
+Find `{meilisearch-secret-name}` which can be found in project folder `strapi -> kubernetes -> base -> secrets -> {meilisearch-file-name}.secret.{env}.yml -> metadata -> name in our case "bratislava-strapi-meilisearch-secret"`
+
+[Log in](https://bratislava.github.io/docs/recipes/kubernetes-lens-setup) to k8 and open Lense and head to `Config -> Secrets -> find {meili-secret-name} in our case "bratislava-strapi-meilisearch-secret"`
+
+### Index settings
+
 Additionaly the following index setup is required (replace the instance and the MASTER_KEY as needed, the instance below is for production meilisearch server):
 
 ```bash
