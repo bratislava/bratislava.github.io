@@ -129,7 +129,7 @@ const config = {
               },
               {
                 label: "Innovations Team",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://inovacie.bratislava.sk/",
               },
               {
                 label: "Bratislava official page",
