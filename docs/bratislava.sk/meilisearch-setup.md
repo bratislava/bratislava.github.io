@@ -1,8 +1,4 @@
-# Bratislava.sk setup, development and deployment
-
-You should find all the necessary info about getting up & running as well as instructions about deployment in the [github README files.](https://github.com/bratislava/bratislava.sk)
-
-## Meilisearch setup per environment
+# Meilisearch setup
 
 If you are looking to run a Meilisearch instance locally look to the [Meilisearch](../meilisearch.md) part of the docs. If you don't need to change the search configuration and need the search results only to work on the frontend code, connecting to staging meilisearch instance - https://bratislava-strapi-meilisearch.staging.bratislava.sk - works reasonably well (beware, though, that this will not reflect your local data if used alongside local Strapi instance).
 
@@ -10,7 +6,7 @@ On each of our instances the following manual index setup is required - this nee
 
 The following content types need to be indexed in the [meilisearch-strapi-plugin](https://github.com/meilisearch/strapi-plugin-meilisearch): `blog-post`, `page`, `vzn`
 
-![Meilisearch plugin screenshot](./assets/meili-plugin.png)
+![Meilisearch plugin screenshot](assets/meili-plugin.png)
 
 ### Meilisearch `MASTER_KEY` location
 
