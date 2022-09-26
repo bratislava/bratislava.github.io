@@ -1,5 +1,25 @@
 # Github actions
 
+## Using a pipelines
+How to deploy to different clusters?
+
+dev
+
+For deployment next to dev you need to tag your commit in whatever branch with tag dev-next* which can be like dev-next1.0
+For deployment strapi to dev you need to tag your commit in whatever branch with tag dev-strpai* which can be like dev-strapi1.0
+Or for whole stack, you just tag it like dev1.0.
+
+Tagging command: git tag -a dev-next1.0 -m "dev-next1.0 - updated feature"
+Push changed to prod: git push --tags
+
+staging
+
+For deployment to staging you can merge pull request or tag it accordingly with tag format staging-next*, staging-strapi*, staging*,
+
+prod
+
+For deployment to prod you can merge pull request or tag it accordingly with tag format prod-next*, prod-strapi*, prod*. You need to be also on master
+
 ### Setup github actions for Next/Strapi project
 We have predefined actions for repeated pipelines, so there is only one file that needs to be added to repo:
 
