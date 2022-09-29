@@ -27,7 +27,7 @@ To create such an alert we need to
   ![infinity alert details](./.attachments/infinity_summary_description_info.png "Example of Infinity Alert Details")
 
 
-And that is it. Now you can just <font color="white" style="background-color:#3871dc;padding:2px">**"Save and exit"**</font>, and your alert should be running, and firing in case of any issues.  
+And that is it. Now you can just <font color="white" style={{background-color: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and your alert should be running, and firing in case of any issues.  
 The default contact point is through Slack to `grafana-alerting` channel. If you want to receive your alerts somewhere else or through some other means, please checkout ["How to add Contact Point"](./contact-point.md) recipe.
 
 ## Examples
