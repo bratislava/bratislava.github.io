@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Index
 
-In recipes in this section, we will discuss how to setup a new [alert](https://grafana.com/docs/grafana/latest/alerting/contact-points/) for your application.
-
-And how to link such a alert with specific contact points for better targeting of relevant contacts [&#8690;](./contact-point.md).
+In recipes for this section, we will discuss
+  - How to setup a new **[alert](https://grafana.bratislava.sk/alerting/list)** for your application
+  - How to link alerts with specific **[contact points](https://grafana.com/docs/grafana/latest/alerting/contact-points/)** for better relevant targeting [&#8690;](./contact-point.md).
 
 We, somewhat arbitrary, split the alert into 3 different categories
   - Alerting on application **system resources** (CPU, Memory, Disk, etc.) [&#8690;](./resource_alert.md)

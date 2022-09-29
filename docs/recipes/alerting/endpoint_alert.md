@@ -11,19 +11,19 @@ To create such an alert we need to
       - `Rule name`, give it what ever you feel is descriptive
       - `Folder`, select based on the cluster
       - `Group`, you can put anything in place of a group, like project name  
-    _Note: bear in mind that all alerts within the same group will be evaluated at the same time. So, if you are planing on creating more alerts for one project, we would suggest to give it the name of that project_
+    _Bear in mind that all alerts within the same group will be evaluated at the same time. So, if you are planing on creating more alerts for one project, we would suggest to give it the name of that project_
   3. Select "Infinity" as data source. Optionally, we can also change name of expression from "A" to maybe something more descriptive
-  4. The only thing we **need** to specify is `Parser` field to be `"Backend"`. Also note, that for alerting Infinity support [only JSON queries](https://sriramajeyam.com/grafana-infinity-datasource/wiki/limitations/)
-  5. Then just fill out the URL select, the method that you want and fields to parse out from the JSON response based on what you want to check
+  4. The only thing we **need** to specify is `Parser` field to be `"Backend"`. Also note, that for alerting, Infinity supports [only JSON queries](https://sriramajeyam.com/grafana-infinity-datasource/wiki/limitations/)
+  5. Then just fill out the URL. Select method that you want (GET, POST) and fields to parse out from the JSON response based on what you want to check
   ![infinity alert example](./.attachments/infinity_alert_example.png "Ininity type alert that check specific endpoint JSON response")
 
-        _Note, Grafana can only work and alert on numeric responses, therefore your endpoint has to return some sort of a number._
+        _Note, Grafana can only work and alert on numeric responses, therefore your endpoint has to return some sort of a number_
 
-  6. Next, we need to add "Math" expression where we check our if the parse response is correct. In our example case, we want alert if response status is not `200`
+  6. Next, we need to add "Math" expression where we check our whether response is correct. In our example case, we want alert if response status is not `200`
   ![infinity math expression](./.attachments/infinity_math_example.png "Example of Math expression for infinity alert")
 
-  7. We need define alert condition. Select the name of our "Math" expression and set check interval (`Evaluate`) and for how long should the alert be pending before firing (`for`).
-  7. Lastly, we want to add some description and summary to our alert, with some custom labels that would help us to better specify what is going on, when we receive the alert notification
+  7. We need to define alert condition. Select the name of our "Math" expression and set check interval (`Evaluate`) and for how long should the alert be pending before firing (`for`).
+  7. Lastly, we want to add some description and summary to our alert, with some custom labels, that would help us to better specify what is going on, when we receive the alert notification
   ![infinity alert details](./.attachments/infinity_summary_description_info.png "Example of Infinity Alert Details")
 
 
