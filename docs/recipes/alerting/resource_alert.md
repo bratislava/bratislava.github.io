@@ -16,7 +16,7 @@ So, to setup an alert, let's say `bratislava-next-app` on `prod` cluster, when r
   ![alert in a panel menu](./.attachments/alert_panel_menu.png "Where is alert menu in a panel UI")
 
   4. Now, you should see all existing alerts tied to the panel/chart. Hit the "Create alert rule from this panel" button
-  5. If you get a message saying, to save the dashboard, hit <font color="white" style={{background-color: '#e02248', padding: '2px'}}>Discard</font>
+  5. If you get a message saying, to save the dashboard, hit <font color="white" style={{backgroundColor: '#e02248', padding: '2px'}}>Discard</font>
 
 This will open up a alert UI, where your query should be already filled in, with correct values from your filters.  
 You can skip steps above if you know [Prometheus query language](https://prometheus.io/docs/prometheus/latest/querying/basics/) and just go directly to this UI through alert button in the left menu (bell icon) and fill in the query by your self.
@@ -47,7 +47,7 @@ That is almost it, we only need to setup alert condition.
   14. You can also select what you want to do in case of missing data
   ![alert conditions](./.attachments/alert_condition_info.png "Alert Conditions Info")
 
-Now, we are done with the alert and you can <font color="white" style={{background-color: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and the alert would start running. But it might be beneficial to put some more information about it. You can do it the next section and put there some `Description` and `Summary`. 
+Now, we are done with the alert and you can <font color="white" style={{backgroundColor: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and the alert would start running. But it might be beneficial to put some more information about it. You can do it the next section and put there some `Description` and `Summary`.
 
 ![summary and description of alerts](./.attachments/summary_description_alert_info.png "Summary and Description for the alert")
 
@@ -56,7 +56,7 @@ Also, put some other specific `labels`, which you can also then use to specify i
 
 _Note, that by default any labels from your query will be also assign to your alert, for instance, stuff like `app`, `pod`, `cluster`, etc. You can use these as variables in your summary and description through [templates](https://grafana.com/docs/grafana/latest/alerting/fundamentals/annotation-label/variables-label-annotation/). This is useful when your query encapsulates multiple applications, you can use these variables to specify for which application the alert if firing._
 
-And that is it. Now you can just <font color="white" style={{background-color: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and your alert should be running, and firing in case of any issues.  
+And that is it. Now you can just <font color="white" style={{backgroundColor: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and your alert should be running, and firing in case of any issues.  
 The default contact point is through Slack to `grafana-alerting` channel. If you want to receive your alerts somewhere else or through some other means, please checkout ["How to add Contact Point"](./contact-point.md) recipe.
 
 ## Examples

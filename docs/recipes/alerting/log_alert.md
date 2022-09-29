@@ -31,7 +31,7 @@ To build such a log alert we need to
   ![log alert details](./.attachments/summary_description_labels_for_logs.png "Details for our log alert")
   _Note, you can use [template](https://grafana.com/docs/grafana/latest/alerting/fundamentals/annotation-label/variables-label-annotation/) variables to customize your alert details, as seen on the picture above._
 
-And that is it. Now you can just <font color="white" style={{background-color: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and your alert should be running, and firing in case of any issues.  
+And that is it. Now you can just <font color="white" style={{backgroundColor: '#3871dc', padding: '2px'}}>**"Save and exit"**</font>, and your alert should be running, and firing in case of any issues.  
 The default contact point is through Slack to `grafana-alerting` channel. If you want to receive your alerts somewhere else or through some other means, please checkout ["How to add Contact Point"](./contact-point.md) recipe.
 
 ## Examples
