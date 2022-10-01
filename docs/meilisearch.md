@@ -175,7 +175,7 @@ spec:
                   number: 80
 ```
 
-Add following to `kubernetes/base/configuration.yml`
+Add following to `kubernetes/base/kustomization.yml`
 
 ```yml
 resources: ...
@@ -238,7 +238,7 @@ MEILI_NO_ANALYTICS=true
 
 Setting `MEILI_ENV` to `development` serves a gui with search console by the meili server.
 
-In case you have multiple `.meilisearch.<env>.env` files, reference the correct one in `kubernetes/envs/<env>/kustommization.yml`
+In case you have also separate `.meilisearch.env` files for each environment, reference the correct one in `kubernetes/envs/<env>/kustommization.yml`
 
 ```yml
 configMapGenerator:
@@ -247,10 +247,12 @@ configMapGenerator:
     namespace: ${NAMESPACE}
     behavior: merge
     envs:
-      - .meilisearch.<env>.env
+      - .meilisearch.env
 ```
 
 ## Getting the search and admin keys
+
+Get the keys.
 
 ```bash
 curl --request GET \
@@ -258,6 +260,10 @@ curl --request GET \
   --header 'Authorization: Bearer YOUR_MASTER_KEY' \
   --header 'Content-Type: application/json' | json_pp
 ```
+
+Set admin key and host in Strapi meilisearch plugin settings, e.g. `bratislava-strapi-meilisearch:7700` for host.
+
+Add search key an host to Next env variables.
 
 More info in meilisearch docs.
 
