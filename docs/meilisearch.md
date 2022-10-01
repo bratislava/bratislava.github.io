@@ -2,15 +2,44 @@
 
 We use meilisearch for all kinds of searching - often simply through [meilisearch-strapi-plugin](https://github.com/meilisearch/strapi-plugin-meilisearch) (read below), but in the future also to scrape the library catalog.
 
-## Setup
+## Meilisearch instance setup
 
 > Important - there might be custom index/search setup for each project - that should be covered in project-specific documentation
 
-### Running meilisearch instance locally
+### Running Meilisearch instance locally
 
-[Read the official docs](https://docs.meilisearch.com/learn/getting_started/quick_start.html#setup-and-installation), we recommend to run in docker.
+For local development, we often use docker compose. The easiest way to add local meilisearch instance to your app is to add it as service to `docker-compose.yml` file as you can see bellow.
 
-### Running the meilisearch instance in Kubernetes
+```yml
+services:
+  ...
+
+  meilisearch:
+    image: getmeili/meilisearch:v0.28
+    environment:
+      - http_proxy
+      - https_proxy
+      - MEILI_MASTER_KEY=YOUR_MASTER_KEY
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_ENV=development
+      - MEILI_LOG_LEVEL
+      - MEILI_DB_PATH=/data.ms
+    ports:
+      - 7700:7700
+    expose:
+      - '7700'
+    volumes:
+      - ./meilisearch/data.ms:/data.ms
+    restart: unless-stopped
+```
+
+:::caution
+Don't forget to add `meilisearch` folder to your `.gitignore` file so it's get ignored.
+:::
+
+For more information about meilisearch, please read [the official meilisearch docs](https://docs.meilisearch.com/learn/getting_started/quick_start.html#setup-and-installation).
+
+### Running the Meilisearch instance in Kubernetes
 
 > Note: This section needs to be verified, info might be missing or incorrect
 
@@ -172,7 +201,7 @@ And to `deployment.yml`
         name: ${BUILD_REPOSITORY_NAME}-meilisearch
 ```
 
-#### Env setup
+#### Environment setup
 
 You'll want to setup a meilisearch master key as a secret (check out the section on env vars & secrets), you can see the secret reference above already. The sealed secret file will looks something like this:
 
@@ -227,7 +256,7 @@ Get the keys.
 
 ```bash
 curl --request GET \
-  --url http://your-strapi-url/keys \
+  --url http://your-meili-url/keys \
   --header 'Authorization: Bearer YOUR_MASTER_KEY' \
   --header 'Content-Type: application/json' | json_pp
 ```
@@ -240,30 +269,69 @@ More info in meilisearch docs.
 
 ## Setting up new index
 
-Before you can search your data, you need to a) set up a index in meilisearch instance and b) fill it with the data to be search. Today our indexes (against strapi data) are setup and filled using GUI provided by [meilisearch-strapi-plugin](https://github.com/meilisearch/strapi-plugin-meilisearch) - follow their docs. To set up an index manually, follow the Meilisearch docs.
+Before you can search your data, you need to index them.
 
-## Connecting Strapi to meilisearch and dealing with localization
+### Manual indexing
 
-We are using [our own fork](https://github.com/bratislava/strapi-plugin-meilisearch) of [meilisearch-strapi-plugin](https://github.com/meilisearch/strapi-plugin-meilisearch) - this is to deal with the localization issue.
+For manual indexing, follow the Meilisearch docs. We don't really do this here...
 
-As of today, the original plugin deals only with the primary locale. A one-liner change makes it index all of the locales, but these will then be clumped together. That means that after indexing the data from Strapi GUI, you need to make the following request against _each localized index_:
+### Connecting Strapi to Meilisearch
 
+Today our Strapi indexes are setup and filled with GUI using [meilisearch-strapi-plugin](https://github.com/meilisearch/strapi-plugin-meilisearch).
+
+The original plugin deals only with the primary locale. A one-liner change makes it index all of the locales, but these will then be clumped together. Because of that, we are using [our own fork](https://github.com/bratislava/strapi-plugin-meilisearch) of [meilisearch-strapi-plugin](https://github.com/meilisearch/strapi-plugin-meilisearch).
+
+You can install it using:
 ```bash
-curl --request PATCH \
-  --url https://your-meili-url/indexes/your-index-name/settings \
-  --header 'Authorization: Bearer YOUR_MASTER_KEY' \
-  --header 'Content-Type: application/json' \
-  --data '{
-	"filterableAttributes": ["locale"]
-}'
+yarn add https://github.com/bratislava/strapi-plugin-meilisearch.git
 ```
 
-Afterwards, you can filter by locale so that your results don't get mixed up, like so:
+Then you can add your configuration into `config/plugins.ts` or `config/plugins.js`.
+
+```ts
+export default {
+  ...
+  meilisearch: {
+    config: {
+      host: process.env.MEILISEARCH_HOST,
+      apiKey: process.env.MEILISEARCH_ADMIN_API_KEY,
+    },
+  },
+}
+```
+
+:::note
+Every project has it's own environment handling (which is often slightly different between projects), so make sure you have your variables set properly.
+:::
+
+#### Localization solution
+
+For every strapi collection that is both localized and should be searchable you have to set locale as filterableAttribute.
+
+Here is an example for `event` collection:
+
+```ts
+export default {
+  ...
+  meilisearch: {
+    config: {
+      ...
+      event: {
+        settings: {
+          filterableAttributes: ['locale'],
+        },
+      },
+    },
+  },
+}
+```
+
+Afterwards, after Strapi restart and rehooking updated collections in UI you can filter by locale so that your results don't get mixed up, like so:
 
 ```bash
 curl --request POST \
   --url https://your-meili-url/indexes/your-index-name/search \
-  --header 'Authorization: Bearer 0125a124666e7339642c8b04bc05e84697c7afcf50e025f1398642b5f8e42c4d' \
+  --header 'Authorization: Bearer YOUR_SEARCH_TOKEN' \
   --header 'Content-Type: application/json' \
   --data '{
 	"q": "Youth",
