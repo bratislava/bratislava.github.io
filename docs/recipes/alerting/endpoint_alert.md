@@ -19,7 +19,7 @@ To create such an alert we need to
 
         _Note, Grafana can only work and alert on numeric responses, therefore your endpoint has to return some sort of a number_
 
-  6. Next, we need to add "Math" expression where we check our whether response is correct. In our example case, we want alert if response status is not `200`
+  6. Next, we need to add "Math" expression where we check out whether response is correct. In our example case, we want alert if response status is not `200`
   ![infinity math expression](./.attachments/infinity_math_example.png "Example of Math expression for infinity alert")
 
   7. We need to define alert condition. Select the name of our "Math" expression and set check interval (`Evaluate`) and for how long should the alert be pending before firing (`for`).

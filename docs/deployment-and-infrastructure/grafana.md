@@ -19,11 +19,11 @@ You can read more in their linked documentations, but to describe the setup in s
   - _Infinity_ is a very simple grafana plugin, that provides HTTP requests capabilities, it can be used to monitor health endpoint and is capable of parsing JSON responses and alerting on them
 
 All of these application can be use to monitor your application and alert in case of any issues.
-Currently, we use this to monitor and observe our kubernetes infrastructure, together with some critical application. For example, we are monitoring hardware resources for all our nodes and pods and when they reach critical usage >=95%, we alert on it. 
+Currently, we use this to monitor and observe our kubernetes infrastructure, together with some critical applications. For example, we are monitoring hardware resources for all our nodes and pods and when they reach critical usage >=95%, we alert on it. 
 
 ## Dashboards
 
-If you have access to Grafana you can take look at our dashboards, that provide more information about the state of infrastructure and individual application together with their logs.
+If you have access to Grafana you can take a look at our dashboards, that provide more information about the state of our infrastructure and individual applications together with their logs.
 
 ### Pod Dashboard
 
@@ -34,7 +34,7 @@ Dashboard is driven by filters that can go up to container granularity.
   - You can search through the **logs** with `regex` pattern. Log volume is color coded base on the stream it was emitted to (<font color="#adadad">stdout</font>/<font color="#ce0000">stderr</font>).
   - It also provides current **running status** of all associated _containers_
   - Application **system statics**, such as, memory, CPU, network and disk ([PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)) usage
-  - At the bottom of the dashboard with have **alerting panel** when you can see all alerting rules associated with your filter selection together with their [state](https://grafana.com/docs/grafana/latest/alerting/fundamentals/state-and-health/)
+  - At the bottom of the dashboard we have **alerting panel** where you can see all the alerting rules associated with your filter selection together with their [state](https://grafana.com/docs/grafana/latest/alerting/fundamentals/state-and-health/)
 
 ### Persistent Volumes Dashboard
 

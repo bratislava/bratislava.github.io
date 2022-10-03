@@ -1,6 +1,6 @@
 # Alerting on Application Logs
 
-In this section we discuss how to build a alert on top of your application logs. As an example, we will use fire a alert, when we see `"ERROR"` keyword in the logs of our application.  
+In this section we discuss how to build a alert on top of your application logs. As an example, we will fire a alert, when we see `"ERROR"` keyword in the logs of our application.  
 To build such a log alert we need to 
 
   1. First go to [Alert section](https://grafana.bratislava.sk/alerting/list) in Grafana (bell icon on the left menu). Then hit the "+ New alert rule" button.
