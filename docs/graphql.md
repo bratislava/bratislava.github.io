@@ -1,18 +1,22 @@
-# Connecting to GraphQL APIs using GraphQL Codegen
+# GraphQL
+
+We're using [GraphQL](https://graphql.org/) priarily when talking to our Strapi CMS servers. Read more about getting the Strapi data with GraphQL in general [in their docs](https://docs.strapi.io/developer-docs/latest/development/plugins/graphql.html).
+
+> If you are joining an existing project and not setting up a new one, you can jump ahead to [Generating and using queries](#generating-and-using-queries)
+
+## Connecting to GraphQL APIs using GraphQL Codegen
 
 We're using [GraphQL Codegen](https://www.graphql-code-generator.com/) setup to generate typed clients for our gql servers - particularly Strapi CMS.
 
 We're using [graphql-request plugin](https://www.graphql-code-generator.com/plugins/typescript/typescript-graphql-request)
 
-> If you are joining an existing project and not setting up a new one, you can jump ahead to [Generating and using queries](#generating-and-using-queries)
-
-## Project setup
+### Project setup
 
 Decide where your `.graphql` files will live, and where your client & types should be generated. Usually we use `/graphql/index.ts` for the client and `/graphql/queries/**/*.graphql` for both queries and mutations. With this setup, our `codegen.yml` in our frontend (i.e. Nextjs) root looks like this:
 
 ```yml
-schema: 'http://localhost:1337/graphql'
-documents: './graphql/queries/**/*.{gql,graphql}'
+schema: "http://localhost:1337/graphql"
+documents: "./graphql/queries/**/*.{gql,graphql}"
 generates:
   graphql/index.ts:
     plugins:
@@ -44,9 +48,9 @@ yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/ty
 To use the generated client (sdk) against your graphql server, you need to initialize it, passing in the server endpoint as a parameter. We usually setup a file like `utils/gql.ts` from which we export .the typed client itself The file below deals with different formats of urls being provided from within Kubernetes deployment and local development.
 
 ```ts
-import { getSdk } from '../graphql/index'
-import { GraphQLClient } from 'graphql-request'
-import getConfig from 'next/config'
+import { getSdk } from "../graphql/index"
+import { GraphQLClient } from "graphql-request"
+import getConfig from "next/config"
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -55,16 +59,18 @@ const { serverRuntimeConfig } = getConfig()
 
 const protocol =
   process.env.STRAPI_URL &&
-  (process.env.STRAPI_URL.startsWith('http://') || process.env.STRAPI_URL.startsWith('https://'))
-    ? ''
-    : 'http://'
+  (process.env.STRAPI_URL.startsWith("http://") || process.env.STRAPI_URL.startsWith("https://"))
+    ? ""
+    : "http://"
 const gql = new GraphQLClient(
-  `${process.env.STRAPI_URL ? `${protocol}${serverRuntimeConfig.strapiUrl}` : window.location.origin}/graphql`
+  `${
+    process.env.STRAPI_URL ? `${protocol}${serverRuntimeConfig.strapiUrl}` : window.location.origin
+  }/graphql`
 )
 export const client = getSdk(gql)
 ```
 
-## Generating and using queries
+### Generating and using queries
 
 You need at least a single valid query among your graphql files for client to generate correctly. Check out [Exploring GraphQL Schema](#exploring-graphql-schema) to find a valid query for your server. Since most of our Strapi V4 instances have a 'pages' model, the following query to get the total amount of pages usually works:
 
@@ -95,7 +101,7 @@ If everything was setup correctly, this will generate `graphql/index.ts` file wi
 Continuing from previous example, if you import which will will return the following data:
 
 ```ts
-import {client} from '../utils/gql'
+import { client } from "../utils/gql"
 
 // ...
 
@@ -113,7 +119,6 @@ const data = await client.TotalPages()
     }
   }
 */
-
 ```
 
 In next.js, you often do this inside `getStaticProps` or `getServerSideProps`:
@@ -121,11 +126,11 @@ In next.js, you often do this inside `getStaticProps` or `getServerSideProps`:
 ```ts
 export const getStaticProps: GetStaticProps = async (ctx) => {
   // ...
-  const {pages} = await client.TotalPages()
+  const { pages } = await client.TotalPages()
   return {
     props: {
       totalPages: pages.meta.pagination.total,
-    }
+    },
   }
 }
 ```
@@ -133,26 +138,27 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 If you do this from frontend (loading data from within a React component), you likely want to wrap the client call in something like [SWR](https://swr.vercel.app/), [React-Query](https://react-query-v3.tanstack.com/overview), or just `useEffect`. With SWR it looks like this:
 
 ```ts
-  const MyComponent = () => {
-    const { data, error } = useSWR('TotalPagesQuery', () => client.TotalPages())
-    const isLoading = !data && !error
-    return (
-      <div>
-        Total pages count: {isLoading ? 'Loading' : error ? 'Error!' : data.pages.meta.pagination.total}
-      </div>
-    )
-  }
+const MyComponent = () => {
+  const { data, error } = useSWR("TotalPagesQuery", () => client.TotalPages())
+  const isLoading = !data && !error
+  return (
+    <div>
+      Total pages count:{" "}
+      {isLoading ? "Loading" : error ? "Error!" : data.pages.meta.pagination.total}
+    </div>
+  )
+}
 ```
 
 Read more in SWR/ReactQuery docs on handling params and other.
 
 ### Error handling
 
-If there's error on *any node* of the result, the whole request will throw. You likely want it wrapped in a try-catch block. 
+If there's error on _any node_ of the result, the whole request will throw. You likely want it wrapped in a try-catch block.
 
 This can be dealt with differently (and often should be - so that one missing piece of data does not break your whole page) - read more in the [docs of the graphql-request](https://github.com/prisma-labs/graphql-request) and the codegen graphql-request plugin linked above.
 
-## Note on using graphql-request 
+### Note on using graphql-request
 
 At the time of writing there is also apollo-next plugin - the reason we use graphql-request, which is more barebones, is because it did not exist when we were setting this up initially. Apollo-next may be worth a shot with some future project
 

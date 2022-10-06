@@ -39,7 +39,7 @@ If you're not familiar with any of these technologies:
 
 Afterwards:
 
-- [our GraphQL Codegen setup](./recipes/graphql-codegen-setup.md)
+- [our GraphQL Codegen setup](./graphql.md)
 - [how we handle environment variables](./recipes/env-vars-and-secrets.md)
 
 ### Backend
@@ -60,11 +60,11 @@ This section serves as a "cookbook" for jobs and setups we need to do repeatedly
 
 Contains the documentation & information for tasks concerning deployment and maintenance of our apps on our Kubernetes clusters (or elsewhere). If you are an open-source contributor or an external contractor, you likely won't need to work with this part of the setup.
 
-### *Technology-name* pages
+### _Technology-name_ pages
 
 Contain information about our use of the technology or library common across all of our projects.
 
-### *Project-name* pages
+### _Project-name_ pages
 
 Contain information specific to the project.
 
