@@ -10,6 +10,8 @@ We're using [GraphQL Codegen](https://www.graphql-code-generator.com/) setup to 
 
 We're using [graphql-request plugin](https://www.graphql-code-generator.com/plugins/typescript/typescript-graphql-request)
 
+:::note **Note on using graphql-request:** at the time of writing there is also apollo-next plugin - the reason we use graphql-request, which is more barebones, is because it did not exist when we were setting this up initially. Apollo-next may be worth a shot with some future project
+
 ### Project setup
 
 Decide where your `.graphql` files will live, and where your client & types should be generated. Usually we use `/graphql/index.ts` for the client and `/graphql/queries/**/*.graphql` for both queries and mutations. With this setup, our `codegen.yml` in our frontend (i.e. Nextjs) root looks like this:
@@ -157,10 +159,6 @@ Read more in SWR/ReactQuery docs on handling params and other.
 If there's error on _any node_ of the result, the whole request will throw. You likely want it wrapped in a try-catch block.
 
 This can be dealt with differently (and often should be - so that one missing piece of data does not break your whole page) - read more in the [docs of the graphql-request](https://github.com/prisma-labs/graphql-request) and the codegen graphql-request plugin linked above.
-
-### Note on using graphql-request
-
-At the time of writing there is also apollo-next plugin - the reason we use graphql-request, which is more barebones, is because it did not exist when we were setting this up initially. Apollo-next may be worth a shot with some future project
 
 ## Exploring GraphQL schema
 

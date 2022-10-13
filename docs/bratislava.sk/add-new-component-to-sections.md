@@ -11,12 +11,14 @@ A higher level overview for this can be found in [our Strapi docs](./../strapi/g
 - go to this location in strapi
   http://localhost:1337/admin/plugins/content-type-builder/content-types
 - there you can see the `COMPONENTS` section at the bottom of the sidebar
-- click on 'add new component' button. If you can't see it verify you are running Strapi server locally and in dev mode.
+- click on 'add new component' button. If you can't see it verify you are running Strapi server locally and in dev mode. In this guide we are assuming you are creating a new "Section" - thus, add the component under the `Sections` category.
+
+![](./assets/strapi-add-component-button.png)
+
 - create a component based on your data type. For example, if you want to create a component for a list of documents, you can create a component with the following fields:
   - `title` - text
   - `documents` - relation to `Document` content-type
-- in this guide we are assuming you are creating a new "Section" - thus, add the component under the `Sections` category
-- after creating the component add the component into the `collection-type`, as shown below in image (taken from v3 Strapi, should be similar in v4).
+- after creating the component add the component into the `collection-type` located in sidebar aswell, as shown below in image (taken from v3 Strapi, should be similar in v4).
 
 ![](./assets/add-new-component-in-collection-type.png)
 
