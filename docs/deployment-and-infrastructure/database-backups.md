@@ -4,4 +4,4 @@ We have a [db-backup pipeline](https://dev.azure.com/bratislava-innovation/Inova
 
 You need access to the Azure Devops project to be able to view these.
 
-For guide on loading dumps like this locally (i.e. for Strapi CMS) see [the appropriate recipe](../recipes/load-strapi-db-in-local-dev.md).
+For guide on loading dumps like this locally (i.e. for Strapi CMS) see [the appropriate recipe](./../strapi/load-strapi-db-in-local-dev.md).
