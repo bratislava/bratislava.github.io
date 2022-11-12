@@ -34,13 +34,15 @@ yarn add -D cross-env
 
 Then edit package.json as follows:
 
+```json
 ...
 "scripts": {
-"develop": "cross-env ENV_PATH='./.env.local' strapi develop",
-"start": "strapi start",
-"build": "strapi build",
-"strapi": "strapi",
-...
+  "dev": "yarn develop",
+  "develop": "cross-env ENV_PATH='./.env.local' strapi develop",
+  "start": "strapi start",
+  "build": "strapi build",
+  "strapi": "strapi",
+  ...
 },
 ...
 
@@ -51,7 +53,6 @@ This will allow you to easily maintain different dev and prod env vars inside th
 An example of `.env.local` file from `bratislava.sk` project:
 
 ```
-
 HOST=0.0.0.0
 PORT=1337
 APP_KEYS=VivFhCHdok6Ui4H1yhF8DA==,fkXjik+gn+fRLqatGAE8QQ==,M8eRp3VNi4dzdfHOTBlT7w==,PODWh8urxrSZKWXWxiEV3w==
@@ -81,7 +82,7 @@ API_TOKEN_SALT
 APP_KEYS
 JWT_SECRET
 
-````
+```
 
 where `ADMIN_JWT_SECRET` are 4 base64 encoded strings separated by comma `,` character, and the rest are base64 encoded strings. Strapi docs [recommend](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment/hosting-guides/heroku.html) generating the secrets with `openssl` command:
 
@@ -91,7 +92,7 @@ Specifically, for APP_KEYS:
 
 ```bash
 APP_KEYS=$(openssl rand -base64 32),$(openssl rand -base64 32),$(openssl rand -base64 32),$(openssl rand -base64 32)
-````
+```
 
 This means the secret file will look something like this (replace the placeholder values with the openssl result _encoded once more into base64_ - more details in [secrets docs](../recipes/env-vars-and-secrets.md))):
 

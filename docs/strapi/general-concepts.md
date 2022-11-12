@@ -20,7 +20,7 @@ Let's distinguish two use-cases from our page ecosystem to illustrate this.
 
 ### "Template" content - pages & entities which always display the same data model
 
-A straightforward application of the Headless CMS concept is when we have a template page on our frontend and we just fill it with data coming from Strapi. An example of this are "Events" from city-library.
+A straightforward application of the Headless CMS concept is when we have a template page on our frontend and we just fill it with data coming from Strapi. An example of this are "Events" from `city-library` project.
 
 ![](../assets/lib-event.png)
 
@@ -64,23 +64,12 @@ const SectionContent = ({ section, locale }: { section: SectionsFragment; locale
       return <DocumentList />
 
     case "ComponentSectionsColumnedText":
-      return (
-        <ColumnedText
-          content={section.content ?? ""}
-          hasBackground={section.hasBackground ?? false}
-        />
-      )
+      return <ColumnedText content={section.content ?? ""} hasBackground={section.hasBackground ?? false} />
     // ... and many more sections cases
   }
 }
 
-const Sections = ({
-  sections,
-  locale,
-}: {
-  sections: (SectionsFragment | null)[]
-  locale?: string
-}) => {
+const Sections = ({ sections, locale }: { sections: (SectionsFragment | null)[]; locale?: string }) => {
   return (
     <>
       {sections.map((section, index) => (
@@ -96,7 +85,7 @@ export default Sections
 
 Mapping the data this way, we'll get our page-builder experience - the CMS admins being able to add new dynamic React components (from a pre-defined set) to their articles by adding the matching Strapi component to lists of dynamic zones within Strapi.
 
-#### Multiple dynamic sections
+### Multiple dynamic sections
 
 You may require multiple 'dynamic' sections within your content-types. I.e. `Page` model in bratislava.sk consists of `PageHeaderSections` and `Sections` - the first one is content rendered in Page Header, the other within the 'body' of the page. Page header has it's own set of components which works within this context and is distinct from the components rendered in the body.
 
@@ -104,7 +93,7 @@ You may require multiple 'dynamic' sections within your content-types. I.e. `Pag
 ![](../assets/dynamic-zone-header.png)
 ![](../assets/dynamic-zone.png)
 
-#### Sharing the same components within multiple content-Types
+### Sharing the same components within multiple content-Types
 
 The above does not mean that for each dynamic section the set of Strapi components need to be distinct. I.e. the body of `Pages` and `BlogPosts` consists of the same set of elements, and subsequentially, the code for the two renders the same set of React components and their respective content-types allow for same set of Strapi Components in their Sections dynamic zone.
 
@@ -113,7 +102,9 @@ The above does not mean that for each dynamic section the set of Strapi componen
 The steps when adding a completely new entity model are roughly as follows:
 
 - create a content-type within Strapi - good introduction [here](https://docs.strapi.io/user-docs/latest/content-types-builder/introduction-to-content-types-builder.html), project specifics within the docs of each of our projects as needed. Creating content-types modifies the code, therefore **you need to do this from a locally running instance, and commit the changes into git.**
-- write the GraphQL query and generate code which fetches it with GraphQL Codegen - see our GraphQL docs(TODO)
-- fetching the data in Next.js and displaying it within our frontend 'template' - see our GraphQL docs(TODO)
+- write the GraphQL query and generate code which fetches it with GraphQL Codegen - see our GraphQL docs (TODO)
+- fetching the data in Next.js and displaying it within our frontend 'template' - see our GraphQL docs (TODO)
 
-For a more concrete example [check out the guide for adding sections to bratislava.sk](../bratislava.sk/add-new-component-to-sections.md) - note that specifics may vary slightly from project to project.
+Please follow also our Strapi best practices.
+
+For a more specific example [check out the guide for adding sections to bratislava.sk](../bratislava.sk/add-new-component-to-sections.md) - note that specifics may vary slightly from project to project.
