@@ -14,7 +14,7 @@ If you want to disable default RJSF label, you can set `"ui:label"` to false in 
 ```
 
 #### uiSchema.json
-You can choose one of 4 types of leftIcon parameter . Also choose one of [input types](https://www.w3schools.com/html/html_form_input_types.asp) like text, password, mail, .etc.
+You can choose one of 4 types of leftIcon parameter. Also choose one of [input types](https://www.w3schools.com/html/html_form_input_types.asp) like text, password, mail, .etc.
 ```
 "inputExample": {
     "ui:widget": "InputField",
@@ -53,6 +53,45 @@ You can choose one of 4 types of leftIcon parameter . Also choose one of [input 
         "explicitOptional": false,
         "className": "px-2 py-4"
     }
+}
+```
+
+## RadioButton
+
+#### schema.json
+```
+"radioButton": {
+    "type": "string",
+    "title": "Radio buttons",
+    "oneOf": [
+        {
+            "const": "screen",
+            "title": "Screen",
+            "tooltip": "This is some tooltip1"
+        },
+        {
+            "const": "multiply",
+            "title": "Multiply",
+            "error": true
+        },
+        {
+            "const": "overlay",
+            "title": "Overlay"
+        }
+    ]
+}
+```
+
+#### uiSchema.json
+You can choose one of 3 types of parameter _variant_.
+```
+"radioButton": {
+    "ui:widget": "RadioButton",
+    "ui:options": {
+        "className": "flex flex-col gap-4",
+        "variant": "basic" | "boxed" | "card"
+    },
+    "ui:value": "overlay"
 }
 ```
 
