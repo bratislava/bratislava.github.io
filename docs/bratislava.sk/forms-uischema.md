@@ -10,7 +10,7 @@ If you want to disable default RJSF label, you can set `"ui:label"` to false in 
     "title": "Text area example",
     "type": "string",
     "default": "You can write default value here"
-    }
+}
 ```
 
 #### uiSchema.json
@@ -20,7 +20,69 @@ If you want to disable default RJSF label, you can set `"ui:label"` to false in 
     "ui:placeholder": "You can write placeholder here",
     "ui:options": {
         "description": "This is description text",
-        "tooltip": "This is tooltip text"
-        }
+        "tooltip": "This is tooltip text",
+        "explicitOptional": false,
+        "className": "px-2 py-4"
     }
+}
+```
+
+## SelectField
+
+#### schema.json - one choice with string
+In this type of creating options, _const_ represents _value_ and _title_ represents _label_.
+```
+"oneChoiceSelect": {
+    "type": "string",
+    "title": "One Choice Select",
+    "oneOf": [
+        {"const": "STU FEI", "title": "fakulta elektrotechniky a informatiky"},
+        {"const": "STU FCHPT"},
+        {"const": "STU FIIT", "title": "fakulta informatiky a informacnych technologii"}
+    ]
+}
+```
+
+#### schema.json - deprecated one choice with number
+```
+"deprecatedOneChoiceSelect": {
+    "type": "number",
+     "title": "Deprecated One Choice Select",
+      "uniqueItems": true,
+      "enum": [1, 2, 3, 4, 5, 6],
+      "enumNames": ["One", "Two", "Three", "Four", "Five", "Six"]
+}
+```
+
+#### schema.json - multi choice
+```
+"multiChoiceSelect": {
+    "type": "array",
+    "title": "Reached diplomas",
+    "uniqueItems": true,
+    "items": {
+        "type": "string",
+        "oneOf": [
+            {"const": "STU FEI", "title": "fakulta elektrotechniky a informatiky"},
+            {"const": "STU FCHPT"},
+            {"const": "STU FIIT", "title": "fakulta informatiky a informacnych technologii"}
+        ]
+    }
+}
+```
+
+#### uiSchema.json
+```
+"multiChoiceSelect": {
+    "ui:widget": "SelectField",
+    "ui:placeholder": "You can write placeholder here",
+    "ui:options": {
+        "dropdownDivider": true,
+        "selectAllOption": true,
+        "description": "This is descriptiont text",
+        "tooltip": "This is tooltip text",
+        "explicitOptional": false,
+        "className": "px-2 py-4"
+    }
+}
 ```
