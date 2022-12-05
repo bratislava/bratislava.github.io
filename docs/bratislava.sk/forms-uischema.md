@@ -2,6 +2,35 @@
 In this part we will introduce how to use all created custom widgets in RJSF. At first, we must create form widget in schema.json and then set most of the props in uiSchema.json, as we are describing this in [previous chapter](/docs/bratislava.sk/forms-general).
 If you want to disable default RJSF label, you can set `"ui:label"` to false in uiSchema.json.
 
+## InputField
+
+#### schema.json
+```
+"inputExample": {
+    "title": "Input field example",
+    "type": "string",
+    "default": "You can write default value here"
+}
+```
+
+#### uiSchema.json
+You can choose one of 4 types of leftIcon parameter . Also choose one of [input types](https://www.w3schools.com/html/html_form_input_types.asp) like text, password, mail, .etc.
+```
+"inputExample": {
+    "ui:widget": "InputField",
+    "ui:placeholder": "You can write placeholder here",
+    "ui:options": {
+        "resetIcon": true,
+        "leftIcon": "person" | "mail" | "call" | "lock",
+        "type": "text",
+        "description": "This is description text",
+        "tooltip": "This is tooltip text",
+        "explicitOptional": false,
+        "className": "px-2 py-4"
+    }
+}
+```
+
 ## TextArea
 
 #### schema.json
@@ -106,27 +135,15 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 }
 ```
 
-#### uiSchema.json - button
+#### uiSchema.json
+You can choose if you want _button_ or _drag&drop_ Upload component by option _type_.
 ```
 "importButton": {
     "ui:widget": "Upload",
     "ui:options": {
+        "type": "button" | "dragAndDrop",
         "size": 5,
         "accept": ".jpg,.pdf",
-        "type": "button",
-        "className": "px-2 py-4"
-    }
-}
-```
-
-#### uiSchema.json - drag & drop
-```
-"importDragAndDrop": {
-    "ui:widget": "Upload",
-    "ui:options": {
-        "size": 5,
-        "accept": ".jpg,.pdf",
-        "type": "dragAndDrop",
         "className": "px-2 py-4"
     }
 }
