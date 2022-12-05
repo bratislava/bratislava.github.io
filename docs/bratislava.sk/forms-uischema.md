@@ -86,3 +86,48 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
     }
 }
 ```
+
+## Upload
+
+#### schema.json - one file
+```
+"importOneFile": {
+    "type": "string"
+}
+```
+
+#### schema.json - multi files
+```
+"importButtonMultipleFiles": {
+    "type": "array",
+    "items": {
+        "type": "string"
+    }
+}
+```
+
+#### uiSchema.json - button
+```
+"importButton": {
+    "ui:widget": "Upload",
+    "ui:options": {
+        "size": 5,
+        "accept": ".jpg,.pdf",
+        "type": "button",
+        "className": "px-2 py-4"
+    }
+}
+```
+
+#### uiSchema.json - drag & drop
+```
+"importDragAndDrop": {
+    "ui:widget": "Upload",
+    "ui:options": {
+        "size": 5,
+        "accept": ".jpg,.pdf",
+        "type": "dragAndDrop",
+        "className": "px-2 py-4"
+    }
+}
+```
