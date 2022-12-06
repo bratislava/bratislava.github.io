@@ -35,5 +35,5 @@ Same API endpoint is called and after the old uploaded file will be deleted, a n
 Basically, it's **replacing** old uploaded file with a new one.
 
 ## Usage in RJSF
-Upload widget is possible to fully use in RJSF forms. Thiw widget is returning string or array of strings.
-This string represents name of uploaded file.
+Upload widget is possible to fully use in RJSF forms. This widget is returning string or array of strings.
+This string represents name of uploaded file. Files with error are not returned.
