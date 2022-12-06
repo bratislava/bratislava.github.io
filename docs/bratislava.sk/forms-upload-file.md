@@ -33,3 +33,7 @@ If a bucket exists, Minio client **deletes the file** from our bucket.
 If we are using Upload with a possibility to upload only one file, we are also deleting already uploaded file if we would upload new one.
 Same API endpoint is called and after the old uploaded file will be deleted, a new one will be uploaded with another endpoint.
 Basically, it's **replacing** old uploaded file with a new one.
+
+## Usage in RJSF
+Upload widget is possible to fully use in RJSF forms. Thiw widget is returning string or array of strings.
+This string represents name of uploaded file.
