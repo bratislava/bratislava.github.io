@@ -24,9 +24,7 @@ If the project uses pipelines, you can quickly call bratiska-cli with the comman
 
 ## 3. Synchronize databases from staging
 If the deployment has the database, don't forget to move the newest version to production. You can grab the db from azure backup pipelines or download it from the staging cluster directly. If you have a db file, you can run the following:
-1. `kubectl config use-context tkg-innov-prod`
-2. change accordingly: `kubectl cp ./strapi-backup.sql standalone/marianum-strapi-database-0:/strapi-backup.sql`
-3. change accordingly: `kubectl exec -t -n standalone marianum-strapi-database-0 -c database -- sh -c "psql -U strapi strapi < strapi-backup.sql"`
+1. Have a look on this guide: https://bratislava.github.io/docs/strapi/sync-strapi-db-to-different-env
 
 ## 4. Add external hostname in ingress.
 If the web is going to be live in a different address, you must first add `bratislavainovuje.sk` as your hostname to check if all network features are working correctly.
@@ -113,23 +111,26 @@ The time has come, now add to ingress your new hostname, same as you added `brat
 ```
 Let things propagate, and we are now ready for the moving procedure.
 
-## 9. Change DNS records to kubernetes records
+## 9. Set domain TTL (needs to be done few days before the move)
+Few days before the move, you need to set the TTL of the domain to 5 minute. This will speed up the propagation of the new DNS records. You can do this in the domain provider.
+Hour before the move, you need to set the TTL to 1 minute.
+
+## 10. Change DNS records to kubernetes records
 Set A records in DNS to kubernetes public IP: `90.176.20.247`
 Delete any remaining AAAA records, as this can cause certificate issues.
 
-## 10. Check the status
+## 11. Check the status
 After 15 mins, all changes should be propagated, and the new Certificate with a domain should be properly running in our production kubernetes. If something is failing, check the Troubleshooting section.
-
 
 # Troubleshooting
 
 ## Webpage is not in kubernetes
 The webpage link still shows the old version on the old server. Check if DNS was changed correctly and if there are no remaining AAAA records that can point out to the different server.
 
-## Certificate not generated
-There can be multiple errors. I try to cover them all.
-
-### Certificate is invalid
-If you receive an error on acme request 404 or 503, there is a chance that some of the DNS records are not properly routed.
+## Certificate is invalid
+If you receive an error on acme request 404 or 503, there is a chance that some DNS records are not properly routed.
 Check https://letsdebug.net/ and type the domain there and see if there are some errors.
 Check if the Certificate is generated for the `www` domain like `www.bratislavainovuje.sk` and see if there are the same errors or Certificate is generated without any problem.
+
+## Other problem with certificate 
+If you have any other problem with certificate, please contact Richard Dvorsky, he can help you with this issue.
