@@ -8,7 +8,7 @@ Currently, there are two ways Grafana can send you a alert notification.
   - A Grafana Bratislava Slack application/bot, that you can add to your channel or create a chat directly
   - Email address `grafana[at]devops.bratislava.sk`, that you can use to send a alert notification to you mailbox
 
-The default setting is to send alerts to Slack Bratislava Innovation Grafana alerting channel. This should serve for most use-case and if you do not wish to change this, you don't need any additional setup when [creating your own alerts](./index.md).
+The default setting is to send alerts to Slack Bratislava Innovation Grafana alerting channel. This should serve for most use-case and if you do not wish to change this, you don't need any additional setup when [creating your own alerts](./grafana_alerting.md).
 
 _Note, that not all users can add contact points, you need to be Grafana administrator. If you can't access these [notification settings](https://grafana.bratislava.sk/alerting/notifications), please ask someone from DevOps to add it for you._
 
