@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Index
+# Grafana Alerting
 
 In recipes for this section, we will discuss
   - How to setup a new **[alert](https://grafana.bratislava.sk/alerting/list)** for your application

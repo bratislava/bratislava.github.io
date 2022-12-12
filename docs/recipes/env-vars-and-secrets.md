@@ -27,11 +27,11 @@ Next.js loads `.env.development` automatically - values in here can be overwritt
 
 ### Strapi
 
-Our Strapi setup (usually) loads data from `.env.local` file in development - this file is gitinored and should be created from `.env.example` during dev setup.
+Our Strapi setup (usually) loads data from `.env.local` file in development - this file is gitignored and should be created from `.env.example` during dev setup.
 
 ### Nest.js
 
-Our nest.js tempalte configuration loads data from `.env` file in development - this file is gitinored and should be created from `.env.example` during dev setup.
+Our nest.js tempalte configuration loads data from `.env` file in development - this file is gitignored and should be created from `.env.example` during dev setup.
 
 ## Build time environment variables
 
@@ -57,7 +57,7 @@ We don't have a mechanism (or at the moment a need) to have or persist these.
 
 These are the same for all frameworks and are stored in `.env` files in `kubernetes` directory of each project. There are a few options _where_ to put this `.env` files, based on whether the config is global for all deployment environments, or only for some:
 
-- use `/kubernetes/base/.env` for config common for all deplyments
+- use `/kubernetes/base/.env` for config common for all deployments
 - use `/kubernetes/envs/<Env>/.env` for specific env, where `<Env>` is one of `Dev`, `Prod`, `Staging`
 
 ## Secrets
@@ -132,7 +132,7 @@ kubectl get secret --namespace=standalone nest-prisma-template-database-secret
 
 After creating file with secret using previous commands, we need to erase previously added secret which shouldn't leak to end users (or be placed under source control).
 
-That's why we edit file including secret, in our case `database.yml`. Usualy we replace it with `<replace-with-base64-password>`. So before committing into source control, file should look like this:
+That's why we edit file including secret, in our case `database.yml`. Usually, we replace it with `<replace-with-base64-password>`. So before committing into source control, file should look like this:
 
 ```yaml
 apiVersion: v1
@@ -185,6 +185,7 @@ If you don't need special settings for your secret, you can create entire `kubes
 ```bash
  kubectl create secret generic <SECRET_NAME> --from-literal=<KEY>=<VALUE> --dry-run=client -o json \
  | jq '. += { "annotation": {"sealedsecrets.bitnami.com/managed": "true"} }' \
+ | jq '.metadata += { "labels": {"app": "${BUILD_REPOSITORY_NAME}", "source": "${BUILD_REPOSITORY_NAME}"} }' `# this will add bratiska-cli build labels to secret` \  
  | kubeseal --controller-name=sealed-secrets --scope=namespace-wide -o yaml --namespace=<NAMESPACE>
 ```
 
@@ -197,6 +198,7 @@ Sticking with our banana example, we create a `database-secret` with "banana" us
     --from-literal=POSTGRES_PASSWORD=banana \
   --dry-run=client -o json \
  | jq '. += { "annotation": {"sealedsecrets.bitnami.com/managed": "true"} }' \
+ | jq '.metadata += { "labels": {"app": "${BUILD_REPOSITORY_NAME}", "source": "${BUILD_REPOSITORY_NAME}"} }' \
  | kubeseal --controller-name=sealed-secrets --scope=namespace-wide -o yaml --namespace=standalone > database.secret.yml
 ```
 
@@ -219,7 +221,7 @@ Use the first that applies for the framework you are using
 ### Next.js
 
 - if it's local development only value, that can be public to the world, store it in `.env.development`
-- if it's local development value that can't be commited / shared with the world, put a placeholder into `.env.development` guiding devs to ask for this value (i.e. `SECRET_VAR=<get-this-from-@user>`) - store the value iself in `.env.development.local` which is gitignored
+- if it's local development value that can't be committed / shared with the world, put a placeholder into `.env.development` guiding devs to ask for this value (i.e. `SECRET_VAR=<get-this-from-@user>`) - store the value itself in `.env.development.local` which is gitignored
 - if it's public information and/or build-time variable common to all deployments store it in `.env.production` file (committed to git) - anything prefixed with `NEXT_PUBLIC_` common to all deployments is here
 - if it's public information and/or build-time variable different across deployments use one (or all) of the files: `.env.bratiska-cli-build.dev`, `.env.bratiska-cli-build.staging`, `.env.bratiska-cli-build.prod`
 - if it shouldn't be stored in git / viewed by public use `kubeseal` and create a sealed secret - this can be common for all environments in a file like `kubernetes/base/secrets/your-secret.secret.all.yml` or specific for each one i.e. `kubernetes/base/secrets/your-secret.secret.staging.yml` - see the appropriate section in Secrets on how to create these
@@ -229,7 +231,7 @@ When in doubt, use the [Next.js environment variable order guide](https://nextjs
 ### Strapi
 
 - if it's local development only value, that can be public to the world, store it in `.env.example` - during development these values should be copied to `.env.local`
-- if it's local development value that can't be commited / shared with the world, put a placeholder into `.env.example` guiding devs to ask for this value (i.e. `SECRET_VAR=<get-this-from-@user>`), store the value itself in `.env.local`
+- if it's local development value that can't be committed / shared with the world, put a placeholder into `.env.example` guiding devs to ask for this value (i.e. `SECRET_VAR=<get-this-from-@user>`), store the value itself in `.env.local`
 - if it's public information and/or build-time variable common to all environments store it in `.env` file (committed to git)
 - if it's public information different across deployments use one (or all) of the files: `/kubernetes/envs/Dev/.env`, `/kubernetes/envs/Staging/.env`, `/kubernetes/envs/Prod/.env`
 - if it shouldn't be stored in git / viewed by public use `kubeseal` and create a sealed secret - this can be common for all environments in a file like `kubernetes/base/secrets/your-secret.secret.all.yml` or specific for each one i.e. `kubernetes/base/secrets/your-secret.secret.staging.yml` - see the appropriate section in Secrets on how to create these
@@ -237,7 +239,7 @@ When in doubt, use the [Next.js environment variable order guide](https://nextjs
 ### Nest.js
 
 - if it's local development only value, that can be public to the world, store it in `.env.example` - during development these values should be copied to `.env.local`
-- if it's local development value that can't be commited / shared with the world, put a placeholder into `.env.example` guiding devs to ask for this value (i.e. `SECRET_VAR=<get-this-from-@user>`), store the value itself in `.env.local`
+- if it's local development value that can't be committed / shared with the world, put a placeholder into `.env.example` guiding devs to ask for this value (i.e. `SECRET_VAR=<get-this-from-@user>`), store the value itself in `.env.local`
 - if it's public information same for all deployments use `/kubernetes/base/.env`
 - if it's public information different across deployments use one (or all) of the files: `/kubernetes/envs/Dev/.env`, `/kubernetes/envs/Staging/.env`, `/kubernetes/envs/Prod/.env`
 - if it shouldn't be stored in git / viewed by public use `kubeseal` and create a sealed secret - this can be common for all environments in a file like `kubernetes/base/secrets/your-secret.secret.all.yml` or specific for each one i.e. `kubernetes/base/secrets/your-secret.secret.staging.yml` - see the appropriate section in Secrets on how to create these
