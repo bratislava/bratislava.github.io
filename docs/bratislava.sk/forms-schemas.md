@@ -2,6 +2,49 @@
 In this part we will introduce how to use all created custom widgets in RJSF. At first, we must create form widget in schema.json and then set most of the props in uiSchema.json, as we are describing this in [previous chapter](/docs/bratislava.sk/forms-general).
 If you want to disable default RJSF label, you can set `"ui:label"` to false in uiSchema.json.
 
+## General schema
+It's very important to keep structure of `schema.json` file with multiple layers. At top, we have object representing
+whole form. It should have _title_ and _description_ of form. Because of parsing, it's important to write also return _type_,
+in our case it's "object". All steps of form are kept in array called _allOf_. Thi is also case for form with one step.
+
+Every step, which will be showed on frontend alone, is represented by object. This object includes another object _properties_.
+Inside of properties, we can create multiple step groups, which can be named as we want.
+They will be shown all at once in step, but this is good if we will want to divide
+fields little also in same step. In these groups, we can define title of group and also required fields. 
+Final layer in group is object properties, which is holding form fields and widgets we want to show in form.
+
+We wrote down examples of these custom widgets after this subchapter. Here you can see example of _schema.json_ architecture.
+
+```
+{   
+  /* this is whole form */
+  "title": "Example form",
+  "description": "this schema is example how to build a form",
+  "type": "object",
+  "allOf": [
+     {  
+        /* this is one step */
+        "properties": {
+            "myCustomWidgetGroup": { 
+                /* this is one group of widgets in step */
+                "title": "Custom group of widgets in step",
+                "required": [ "myCustomWidget" ],
+                "properties": {
+                    "myCustomWidget": {
+                        /* this is one widget */
+                        "type": "string",
+                        "title": "Custom form widget"
+                    }
+                }
+            }
+        }
+     }
+  ]
+}
+```
+
+Now we will continue with examples of custom widgets from last layer of schema.json, which represents widgets which should be filled by user.
+
 ## InputField
 
 #### schema.json
@@ -108,17 +151,6 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
         {"const": "STU FCHPT"},
         {"const": "STU FIIT", "title": "fakulta informatiky a informacnych technologii"}
     ]
-}
-```
-
-#### schema.json - deprecated one choice with number
-```
-"deprecatedOneChoiceSelect": {
-    "type": "number",
-     "title": "Deprecated One Choice Select",
-      "uniqueItems": true,
-      "enum": [1, 2, 3, 4, 5, 6],
-      "enumNames": ["One", "Two", "Three", "Four", "Five", "Six"]
 }
 ```
 
