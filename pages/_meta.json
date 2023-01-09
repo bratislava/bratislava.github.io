@@ -1,3 +1,14 @@
 {
-  "index": "Introduction"
+  "index": "Introduction",
+  "onboarding":  "Onboarding",
+  "-- Web development --": {
+    "type": "separator"
+  },
+  "strapi": "Strapi",
+  "graphql": "GraphQL",
+  "meilisearch": "Meilisearch",
+  "project-specific": "Project specific",
+  "-- Others --": {
+    "type": "separator"
+  }
 }

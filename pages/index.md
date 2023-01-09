@@ -16,10 +16,10 @@ Hey! 👋 If you're a new contributor, member of the Innovations team or an exte
 
 ### General
 
-- [Editor setup](./recipes/editor-setup)
-- [Git workflow](./recipes/git-workflow)
-- [Docker setup](./recipes/docker-setup)
-- [Postgres setup](./recipes/postgres-setup)
+- [Editor setup](onboarding/setup-and-access/editor-setup.md)
+- [Git workflow](onboarding/workflows/git-workflow.md)
+- [Docker setup](onboarding/setup-and-access/docker-setup.md)
+- [Postgres setup](onboarding/setup-and-access/postgres-setup.md)
 
 ### Frontend
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Developer Accesses
 
 List of accesses for internal developers & contractors. Does not go into documents signed or other HR stuff 🙂

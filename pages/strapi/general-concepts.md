@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # General Concepts
 
 We use [Strapi](https://strapi.io/) as our Headless CMS, from which we pull data into Next.js frontend via GraphQL.

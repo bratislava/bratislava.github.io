@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 # Regular meetings, sync & rituals
 
 These are for developers across all projects in the Inovations team. Each project may have it's own planning/standup/retrospective meets & calls, we're not covering those here.
