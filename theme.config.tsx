@@ -7,6 +7,9 @@ const config: DocsThemeConfig = {
     link: "https://github.com/bratislava",
   },
   docsRepositoryBase: "https://github.com/bratislava/bratislava.github.io",
+  sidebar: {
+    defaultMenuCollapseLevel: 0,
+  },
   footer: {
     text: "Department of Innovation and Technology of the City of Bratislava",
   },
