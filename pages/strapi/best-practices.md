@@ -5,7 +5,7 @@
 ### Content type naming
 
 1. In first modal window, start with a name in singular, camelCase, small first letter, no spaces, no special characters, no underscores... (Strapi does some magic with the name, so it's best to start with a clean name)
-2. after the content type is created, chande the display name to something readable also for the clients - usually plural, starting with big letter, use spaces
+2. after the content type is created, change the display name to something readable also for the clients - usually plural, starting with big letter, use spaces
 
 This way, we can be sure that the content type has a well formatted name in code and also in admin UI.
 
