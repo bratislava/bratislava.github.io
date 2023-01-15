@@ -71,7 +71,7 @@ To add description and example, we can use jsdoc spec instead of decorators (des
 > ```
 >
 > and this is it displayed in swagger:
-> ![](./.attachments/2021-11-02-16-02-42.png)
+> ![](./assets/2021-11-02-16-02-42.png)
 
 ### Controllers
 
@@ -105,7 +105,7 @@ For responses we need to include description in the decorator. It also supports 
 > ```
 >
 > This produces following swagger
-> ![](./.attachments/2021-11-02-16-40-32.png)
+> ![](./assets/2021-11-02-16-40-32.png)
 
 ## Markdown documentation
 
@@ -179,4 +179,4 @@ Then we can import markdown files directly using an import statement. This is us
 > ```
 >
 > And it looks like following in Swagger UI
-> ![](./.attachments/2021-11-02-16-42-31.png)
+> ![](./assets/2021-11-02-16-42-31.png)

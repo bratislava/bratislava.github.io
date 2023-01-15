@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Setup
 
 This guide focuses on specific updates to the Strapi setup related to our own needs and requirements. For more general information about Strapi, please refer to the [official documentation](https://strapi.io/documentation/developer-docs/latest/getting-started/introduction.html).
