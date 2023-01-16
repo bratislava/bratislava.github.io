@@ -24,7 +24,7 @@ A higher level overview for this can be found in [our Strapi docs](./../strapi/g
 
 # 2. add or update the query to grab newly created component in strapi
 
-- you can use GraphiQL to get the exact format of your query - check out the [graphql docs](../../graphql.md#exploring-graphql-schema)
+- you can use GraphiQL to get the exact format of your query - check out the [graphql docs](../../graphql#exploring-graphql-schema)
 - continuing with the example above, assuming your component is named `DocumentsList` you would add something like this the `Section` fragment definition (inside `next/graphql/queries/Pages.graphql`):
 
 ```graphql

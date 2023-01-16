@@ -16,10 +16,10 @@ Hey! 👋 If you're a new contributor, member of the Innovations team or an exte
 
 ### General
 
-- [Editor setup](onboarding/setup-and-access/editor-setup.md)
-- [Git workflow](onboarding/workflows/git-workflow.md)
-- [Docker setup](onboarding/setup-and-access/docker-setup.md)
-- [Postgres setup](onboarding/setup-and-access/postgres-setup.md)
+- [Editor setup](onboarding/setup-and-access/editor-setup)
+- [Git workflow](onboarding/workflows/git-workflow)
+- [Docker setup](onboarding/setup-and-access/docker-setup)
+- [Postgres setup](onboarding/setup-and-access/postgres-setup)
 
 ### Frontend
 

@@ -12,7 +12,7 @@ The following content types need to be indexed in the [meilisearch-strapi-plugin
 
 Find `{meilisearch-secret-name}` which can be found in project folder `strapi -> kubernetes -> base -> secrets -> {meilisearch-file-name}.secret.{env}.yml -> metadata -> name in our case "bratislava-strapi-meilisearch-secret"`
 
-[Log in](https://bratislava.github.io/docs/recipes/kubernetes-lens-setup) to k8 and open Lense and head to `Config -> Secrets -> find {meili-secret-name} in our case "bratislava-strapi-meilisearch-secret"`
+[Log in](../../onboarding/setup-and-access/kubernetes-lens-setup) to k8 and open Lense and head to `Config -> Secrets -> find {meili-secret-name} in our case "bratislava-strapi-meilisearch-secret"`
 
 ### Index settings
 
