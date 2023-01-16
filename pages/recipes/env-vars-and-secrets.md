@@ -104,7 +104,7 @@ For example, if you need to set up the database name to `banana`, you need to ba
 
 The last thing is encrypting our secrets by kubeseal to be used on Kubernetes. You need to run this command that creates the file `database.secret.yml` where all our values are encrypted and safe to add to the repository.
 
-Before running this command be sure you are [logged](../onboarding/setup-and-access/kubernetes-lens-setup.md) in right cluster `kubectl config use-context tkg-innov-<env>` (replace `<env>` with one of `dev`, `staging` or `prod`. Cluster you are logged in is used when generating secret. Regarding to this, if you are generating secret for more then one cluster you need to switch between clusters between each generation of secret.
+Before running this command be sure you are [logged](../onboarding/setup-and-access/kubernetes-lens-setup) in right cluster `kubectl config use-context tkg-innov-<env>` (replace `<env>` with one of `dev`, `staging` or `prod`. Cluster you are logged in is used when generating secret. Regarding to this, if you are generating secret for more then one cluster you need to switch between clusters between each generation of secret.
 
 ```bash
 kubeseal --controller-name=sealed-secrets --scope=namespace-wide --namespace=standalone --format=yaml < database.yml > database.secret.yml

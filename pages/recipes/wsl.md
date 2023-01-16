@@ -94,7 +94,7 @@ wget -qO- https://k8s.tanzu.bratislava.sk/wcp/plugin/linux-amd64/vsphere-plugin.
 sudo install -o root -g root -m 0755 kubectl-vsphere /usr/local/bin/kubectl-vsphere
 ```
 
-After this you should be able to log into our kubernetes cluster. You can test and login in by following our [Login guide](../onboarding/setup-and-access/kubernetes-lens-setup.md).
+After this you should be able to log into our kubernetes cluster. You can test and login in by following our [Login guide](../onboarding/setup-and-access/kubernetes-lens-setup).
 
 ### `kubeseal`
 
@@ -150,4 +150,4 @@ After successful installation of `yarn` (to verify you can run `yarn --version`)
 [bratiska-cli installation instruction](https://github.com/bratislava/bratiska-cli#installation). Please, verify one more time that you have met all of the required [prerequisites](https://github.com/bratislava/bratiska-cli#prerequisites).
 
 Now you should have everything needed to [deploy](https://github.com/bratislava/bratiska-cli#deployment) your application through `bratiska-cli`.  
-To login to our cluster you can follow our [Login guide](../onboarding/setup-and-access/kubernetes-lens-setup.md).
+To login to our cluster you can follow our [Login guide](../onboarding/setup-and-access/kubernetes-lens-setup).
