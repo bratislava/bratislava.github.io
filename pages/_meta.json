@@ -7,6 +7,7 @@
   "strapi": "Strapi",
   "graphql": "GraphQL",
   "meilisearch": "Meilisearch",
+  "frontend": "Frontend",
   "project-specific": "Project specific",
   "-- Others --": {
     "type": "separator"
