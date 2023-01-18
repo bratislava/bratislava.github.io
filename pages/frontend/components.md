@@ -82,7 +82,7 @@ Examples:
 
 
 ## Use generated ids
-Although often needed `id`s are not important from the semantic or accessibility standpoint, the user must not be forced have to be user provide (can be generated).
+Although often needed `id`s are not important from the semantic or accessibility standpoint, the component's "user" must not be forced provide these (they can be generated).
 
 * ✅ Use `useId` hook from React to generate an `id`.
 * ✅ Make `id` optional in the component props.
