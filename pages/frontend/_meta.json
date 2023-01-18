@@ -1,0 +1,45 @@
+{
+  "captcha": {
+    "display": "hidden"
+  },
+  "data-fetching-listing": {
+    "title": "Data fetching & listing",
+    "display": "hidden"
+  },
+  "date-and-time": {
+    "title": "Date & time",
+    "display": "hidden"
+  },
+  "fonts": {
+    "display": "hidden"
+  },
+  "gallery": {
+    "display": "hidden"
+  },
+  "icons": {
+    "display": "hidden"
+  },
+  "images": {
+    "display": "hidden"
+  },
+  "localization": {
+    "display": "hidden"
+  },
+  "menu": {
+    "display": "hidden"
+  },
+  "navigation-breadcrumbs": {
+    "title": "Navigation & breadcrumbs",
+    "display": "hidden"
+  },
+  "search": {
+    "display": "hidden"
+  },
+  "seo": {
+    "display": "hidden"
+  },
+  "texts": {
+    "display": "hidden"
+  }
+}
+
