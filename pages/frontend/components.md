@@ -20,7 +20,7 @@ export default Example
 
  * ✅ Add TSDoc if needed.
  * ✅ Add Figma link if suitable.
- * ✅ Prefer types over interfaces for props (consistency).
+ * ✅ Prefer types to interfaces for props (consistency).
  * ❌ Don't prefix interfaces with `I`. ([source](https://stackoverflow.com/a/41967120))
  * ❌ Don't create a `index.ts` groupping the components. In the ES module system, it adds an unnecessary step and behaviorally leads to creating less components (there should be more of them!). ([example](https://github.com/bratislava/kupaliska-starz-fe/blob/master/src/components/index.ts))
 
