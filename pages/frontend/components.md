@@ -71,7 +71,7 @@ const ComponentWithStyles = ({className, textClassname}: ComponentWithStylesProp
 
 
 ## Use controlled state
-If implementing a component that accepts a value from parent and is able to change it use `useControlledState` from `@react-stately/utils`. It also allows you to skip value from parent and provide a default value if needed.
+If implementing a component that accepts a value from parent and is able to change it use `useControlledState` from `@react-stately/utils`. It also allows you to skip value from parent and provide a default value if needed. [This article](https://medium.com/quick-code/writing-ui-components-with-optionally-controllable-state-86e396a6f1ec) explains why it's important to use controlled state.
 
 For more advanced use cases use state utilities from [react-stately](https://react-spectrum.adobe.com/react-stately/index.html) (e.g. `useToggleState`).
 
