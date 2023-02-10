@@ -4,7 +4,7 @@
 
 [GINIS](https://www.gordic.cz/ginis) is the system which tracks all of the official documents which the city hall processes, their assignment and resolution, as well as all of the official communication of the city, whether it's between the government and the citizen, or government-to-government.
 
-> A somehow vulgar-but-straightforward explanation of what it's role in the city for someone coming from a private sector is that is serves a similar role as a [CRM](https://www.oracle.com/cx/what-is-crm/) system might serve in a sales driven company.
+> A somehow-inaccurate-but-straightforward explanation for someone coming from a private sector is that it serves a similar role as a [CRM](https://www.oracle.com/cx/what-is-crm/) system might serve in a sales driven company.
 
 The slovak name for all of this is "registratúra".
 
