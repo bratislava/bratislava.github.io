@@ -346,6 +346,9 @@ More info in meilisearch docs.
 
 Just like with `filterableAttributes`, you can further configure your indexes (i.e. add sortableAttributes) - check out meilisearch docs.
 
+In case you are changing `filterableAttributes` or other `searchIndexSettings` you need to unhook and rehook collection to take
+effect of this new settings.
+
 ## Accessing search functionality
 
 When you have your indexes setup (using strapi plugin or manually), you can search them using the following
