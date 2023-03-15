@@ -1,6 +1,12 @@
 # Load Production or Staging database dump in local development
 
-You'll need access to our [Azure Devops project](https://dev.azure.com/bratislava-innovation/Inovacie) o access the database dumps
+You'll need access to our [Azure Devops project](https://dev.azure.com/bratislava-innovation/Inovacie) to access the database dumps.
+
+## Using @bratislava/ristor
+
+See the [repository](https://github.com/bratislava/ristor).
+
+## Manually
 
 You can then use the [db-backup pipeline](https://dev.azure.com/bratislava-innovation/Inovacie/_build?definitionId=28) to browse recent backups on different k8s deployed projects. Each run produces an artifact in which you'll find the db dump.
 
