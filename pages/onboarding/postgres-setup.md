@@ -1,6 +1,6 @@
 # Setup Postgres & tools
 
-We recommend running your postgres database in a docker. For docker setup recommendations, look [here](docker-setup).
+We recommend running your postgres database in a docker. For docker setup recommendations, look [here](./docker-setup).
 
 ## Installing psql
 

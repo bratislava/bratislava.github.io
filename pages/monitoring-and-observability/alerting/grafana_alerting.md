@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Grafana Alerting
 
 In recipes for this section, we will discuss
@@ -21,4 +17,4 @@ This categorization is in line with the supporting Grafana applications/data sou
 - _[Loki](https://grafana.com/oss/loki/)_ is a Grafana application that specializes in logs monitoring and alerting.
 - _[Infinity](https://grafana.com/grafana/plugins/yesoreyeram-infinity-datasource/)_ is a very simple application that provides HTTP requests capabilities, it can be used to monitor health endpoint and is capable of parsing JSON responses and alerting on them
 
-And for more information on how all of this is setup, please visit [Observability and Monitoring](../../deployment-and-infrastructure/grafana) section.
+And for more information on how all of this is setup, please visit [Monitoring and Observability](../grafana) section.

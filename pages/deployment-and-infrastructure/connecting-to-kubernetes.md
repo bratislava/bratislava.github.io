@@ -1,7 +1,7 @@
 # Connecting to Kubernetes
 
 This section briefly shows how to do some basic connecting to Service and PODs in kubernetes cluster through `kubectl` or kubernetes Lens.  
-As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](../onboarding/setup-and-access/kubernetes-lens-setup).
+As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](../onboarding/kubernetes-lens-setup).
 
 ## How to connect to database
 
