@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Introduction
 
 This is the central repository for technical documentation of projects developed and maintained by [Department of Innovation and Technology of the City of Bratislava](https://inovacie.bratislava.sk). if you'd like to contribute, get in touch via [email](mailto:innovationteam@bratislava.sk) or [github](https://github.com/bratislava/bratislava.github.io)
@@ -16,10 +12,10 @@ Hey! 👋 If you're a new contributor, member of the Innovations team or an exte
 
 ### General
 
-- [Editor setup](onboarding/setup-and-access/editor-setup)
+- [Editor setup](onboarding/editor-setup)
 - [Git workflow](onboarding/workflows/git-workflow)
-- [Docker setup](onboarding/setup-and-access/docker-setup)
-- [Postgres setup](onboarding/setup-and-access/postgres-setup)
+- [Docker setup](onboarding/docker-setup)
+- [Postgres setup](onboarding/postgres-setup)
 
 ### Frontend
 
@@ -36,7 +32,7 @@ If you're not familiar with any of these technologies:
 Afterwards:
 
 - [our GraphQL Codegen setup](./graphql)
-- [how we handle environment variables](./recipes/env-vars-and-secrets)
+- [how we handle environment variables](./deployment-and-infrastructure/env-vars-and-secrets)
 
 ### Backend
 
@@ -48,22 +44,24 @@ Afterwards, you can check out the NextJS section of documentation for more detai
 
 ## Structure
 
-### Recipes
+The site is split into following sections (see the main menu on the left).
 
-This section serves as a "cookbook" for jobs and setups we need to do repeatedly. If you encounter (and struggle through) a task, steps of which were not trivial, and with which you can help with your newly gained knowledge, please write anything relevant into this section of the documentation.
+### Setup & Onboarding
 
-### Deployment and infrastructure
+Start here if you are a new contributor, colleague or an external contractor. This section contains information about our development environment, workflows, tools and the way to set them up.
 
-Contains the documentation & information for tasks concerning deployment and maintenance of our apps on our Kubernetes clusters (or elsewhere). If you are an open-source contributor or an external contractor, you likely won't need to work with this part of the setup.
+### Project specific documentation
 
-### _Technology-name_ pages
+Contains documentation relevant only for the specific projects.
 
-Contain information about our use of the technology or library common across all of our projects.
+### Frontend / Web development
 
-### _Project-name_ pages
+All the docs about common techniques, libraries and tools we use in frontend development, as well as about our CMS (Strapi) and fulltext-search tool (Meilisearch), which are also usually developed and maintained by the frontend team.
 
-Contain information specific to the project.
+### Backend development
 
-### Other
+Libraries and services used by backend, common accross multiple projects.
 
-Organizational, onboarding, not related to development itself, other 🙂
+### Deployment, infrastructure, monitoring
+
+Kubernetes, cloud services, Grafana.

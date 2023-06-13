@@ -66,10 +66,10 @@ For actual alerting we have setup:
 - A Grafana Bratislava Slack application/bot, that you can add to your channel
 - Email address `grafana[at]devops.bratislava.sk`, that you can use to send a alert notification to you mailbox
 
-To setup a new contact point, for instance if you and only you want get some specific alert, please follow our ["Add New Contact Point"](../recipes/alerting/contact-point) recipe.
+To setup a new contact point, for instance if you and only you want get some specific alert, please follow our ["Add New Contact Point"](./alerting/contact-point) recipe.
 
 For recipes on how to create your own alert take a look at the following
 
-- Alerting on application **system resources** (CPU, Memory, Disk, etc.) [&#8690;](../recipes/alerting/resource_alert)
-- Alerting on application's **logs** and specific keywords or pattern in those logs [&#8690;](../recipes/alerting/log_alert)
-- Alerting on **availability** of specific endpoints or data provided by those endpoints [&#8690;](../recipes/alerting/endpoint_alert)
+- Alerting on application **system resources** (CPU, Memory, Disk, etc.) [&#8690;](./alerting/resource_alert)
+- Alerting on application's **logs** and specific keywords or pattern in those logs [&#8690;](./alerting/log_alert)
+- Alerting on **availability** of specific endpoints or data provided by those endpoints [&#8690;](./alerting/endpoint_alert)

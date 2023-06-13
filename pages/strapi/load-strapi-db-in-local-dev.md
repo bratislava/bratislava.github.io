@@ -28,4 +28,4 @@ psql -h localhost -p 5432 -U strapi your_strapi_db < newest-db-dump.sql
 
 To login into the db dumped this way, you may need to ask for access from the project lead.
 
-> See [Sync Strapi database to different environment](sync-strapi-db-to-different-env.md) for guide on dumping live database directly from the server, instead of relying on the regular db dumps in pipeline.
+> See [Sync Strapi database to different environment](./sync-strapi-db-to-different-env.md) for guide on dumping live database directly from the server, instead of relying on the regular db dumps in pipeline.

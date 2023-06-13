@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # NestJS index
 
 What is the nestjs structure, what plugins and decorators do we use and how do we use it.

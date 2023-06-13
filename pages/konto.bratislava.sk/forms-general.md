@@ -1,7 +1,5 @@
 # Forms
 
-> 🔧 This section, as well as the feature itself, is a work-in-progress.
-
 We are using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) with our custom form components as widgets to build our form system.
 
 We use [AJV](https://ajv.js.org/) for validation (and so does react-jsonschema-form).
@@ -21,8 +19,8 @@ Read more about [JSON Schema](https://json-schema.org/).
 ## Adding new eForm
 
 1. Create a JSON schema. [RJSF playground ](https://rjsf-team.github.io/react-jsonschema-form/) may be useful.
-2. Install [@bratislava/json-schema-xsd-tools](https://www.npmjs.com/package/@bratislava/json-schema-xsd-tools) globally - run `yarn global add @bratislava/json-schema-xsd-tools` or `npm i -g @bratislava/json-schema-xsd-tools`
-3. Run command `json-schema-xsd-tools generate -j <json-path> -o <out>`, where `json-path` is path to prepared JSON schema and `out` is eForm name (default form).
+2. Install [@bratislava/jsxt](https://www.npmjs.com/package/@bratislava/jsxt) globally - run `yarn global add @bratislava/jsxt` or `npm i -g @bratislava/jsxt`
+3. Run command `jsxt generate -j <json-path> -o <out>`, where `json-path` is path to prepared JSON schema and `out` is eForm name (default form).
 4. File `<out>.ts` and folder `<out>` are generated. Output folder includes XSD schema, stylesheets (for text, html and pdf transformations), xml template and some mock data. Copy these files into `/backend/forms` in [bratislava.sk](https://github.com/bratislava/bratislava.sk). Also update `/backed/forms/index.ts`.
 5. Run tests - run `yarn test` or `npm run test`. If you would like to exclude form from tests (not recommended), include form name to `excludeKeys` in `__tests__/forms.test.ts`
 

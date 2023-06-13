@@ -1,6 +1,12 @@
 {
   "index": "Introduction",
-  "onboarding":  "Onboarding",
+  "onboarding": "Setup & Onboarding",
+  "-- Projects --": {
+    "type": "separator"
+  },
+  "bratislava.sk": "bratislava.sk",
+  "konto.bratislava.sk": "konto.bratislava.sk",
+  "muzeumbratislava.sk": "muzeumbratislava.sk",
   "-- Web development --": {
     "type": "separator"
   },
@@ -8,8 +14,14 @@
   "graphql": "GraphQL",
   "meilisearch": "Meilisearch",
   "frontend": "Frontend",
-  "project-specific": "Project specific",
-  "-- Others --": {
+  "-- Backend --": {
     "type": "separator"
-  }
+  },
+  "GINIS": "GINIS",
+  "nestjs": "NestJS",
+  "-- DevOps --": {
+    "type": "separator"
+  },
+  "deployment-and-infrastructure": "Deployment & Infrastructure",
+  "monitoring-and-observability": "Monitoring & Observability"
 }

@@ -1,10 +1,12 @@
 # Custom RJSF widgets
-In this part we will introduce how to use all created custom widgets in RJSF. At first, we must create form widget in schema.json and then set most of the props in uiSchema.json, as we are describing this in [previous chapter](/docs/bratislava.sk/forms-general).
+
+In this part we will introduce how to use all created custom widgets in RJSF. At first, we must create form widget in schema.json and then set most of the props in uiSchema.json, as we are describing this in [previous chapter](./forms-general).
 If you want to disable default RJSF label, you can set `"ui:label"` to false in uiSchema.json.
 
 ## InputField
 
 #### schema.json
+
 ```
 "inputExample": {
     "title": "Input field example",
@@ -14,7 +16,9 @@ If you want to disable default RJSF label, you can set `"ui:label"` to false in 
 ```
 
 #### uiSchema.json
+
 You can choose one of 4 types of leftIcon parameter. Also choose one of [input types](https://www.w3schools.com/html/html_form_input_types.asp) like text, password, mail, .etc.
+
 ```
 "inputExample": {
     "ui:widget": "InputField",
@@ -34,6 +38,7 @@ You can choose one of 4 types of leftIcon parameter. Also choose one of [input t
 ## TextArea
 
 #### schema.json
+
 ```
 "textAreaExample": {
     "title": "Text area example",
@@ -43,6 +48,7 @@ You can choose one of 4 types of leftIcon parameter. Also choose one of [input t
 ```
 
 #### uiSchema.json
+
 ```
 "textAreaExample": {
     "ui:widget": "TextArea",
@@ -59,6 +65,7 @@ You can choose one of 4 types of leftIcon parameter. Also choose one of [input t
 ## RadioButton
 
 #### schema.json
+
 ```
 "radioButton": {
     "type": "string",
@@ -83,7 +90,9 @@ You can choose one of 4 types of leftIcon parameter. Also choose one of [input t
 ```
 
 #### uiSchema.json
+
 You can choose one of 3 types of parameter _variant_.
+
 ```
 "radioButton": {
     "ui:widget": "RadioButton",
@@ -98,7 +107,9 @@ You can choose one of 3 types of parameter _variant_.
 ## SelectField
 
 #### schema.json - one choice with string
+
 In this type of creating options, _const_ represents _value_ and _title_ represents _label_.
+
 ```
 "oneChoiceSelect": {
     "type": "string",
@@ -112,6 +123,7 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 ```
 
 #### schema.json - deprecated one choice with number
+
 ```
 "deprecatedOneChoiceSelect": {
     "type": "number",
@@ -123,6 +135,7 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 ```
 
 #### schema.json - multi choice
+
 ```
 "multiChoiceSelect": {
     "type": "array",
@@ -140,6 +153,7 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 ```
 
 #### uiSchema.json
+
 ```
 "multiChoiceSelect": {
     "ui:widget": "SelectField",
@@ -158,6 +172,7 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 ## Upload
 
 #### schema.json - one file
+
 ```
 "importOneFile": {
     "type": "string"
@@ -165,6 +180,7 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 ```
 
 #### schema.json - multi files
+
 ```
 "importButtonMultipleFiles": {
     "type": "array",
@@ -175,7 +191,9 @@ In this type of creating options, _const_ represents _value_ and _title_ represe
 ```
 
 #### uiSchema.json
+
 You can choose if you want _button_ or _drag&drop_ Upload component by option _type_.
+
 ```
 "importButton": {
     "ui:widget": "Upload",

@@ -2,7 +2,7 @@
 
 Our applications will inherently have some limits, for instance, memory (RAM) or disk and it will probably be useful to alert in case, disk reaches 80% capacity. For this, use-case we use [Prometheus](https://prometheus.io/) data source that captures these metrics for individual instance spined up in our cluster.
 
-The easiest way to create a alert on resource utilization is to visit any of our Grafana [dashboard](../../deployment-and-infrastructure/grafana), that contains information you want to alert on. We recommend [Pod Dashboard](https://grafana.bratislava.sk/d/liz0yRCZz/pod-dashboard?orgId=1), in case of alerting on app/pod/container and will use it in following example: Alert on application high memory utilization.
+The easiest way to create a alert on resource utilization is to visit any of our Grafana [dashboard](../grafana), that contains information you want to alert on. We recommend [Pod Dashboard](https://grafana.bratislava.sk/d/liz0yRCZz/pod-dashboard?orgId=1), in case of alerting on app/pod/container and will use it in following example: Alert on application high memory utilization.
 
 So, to setup an alert, let's say `bratislava-next-app` on `prod` cluster, when reaches 90% memory utilization, we need to
 
