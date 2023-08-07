@@ -21,9 +21,9 @@ You can access this system either by web interface (as the clerks handling the d
 
 The definite source of docs for the API is [the official Gordic documentation](https://robot.gordic.cz/xrg/Default.html). You need to register on the site before you can access them. Note that not all of the interfaces listed are available to us (we should be able to request them if needed though).
 
-### Modules / Interfaces
+### Modules / Interfaces / services
 
-GINIS consists of multiple "modules" or "interfaces" - these are the 3 letter abbreviations like SSL, UDE, POD. The term module and interface seems to be almost interchangeable within the GINIS context - probably because each module has a single SOAP endpoint which listens for all actions related to it.
+GINIS consists of multiple "modules" or "interfaces" or "services" - as far as we know these terms are interchangeble within the GINIS system. These are the 3 letter abbreviations like SSL ("spisová služba"), UDE ("uradni deska"), POD ("podatelna"), which group together similar functionalities. Each service runs on a separate url and can be configured by GORDIC.
 
 ### Actions
 
