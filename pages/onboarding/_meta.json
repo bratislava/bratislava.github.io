@@ -1,0 +1,16 @@
+{
+  "editor-setup": "Editor Setup",
+  "docker-setup": "Docker Setup",
+  "wsl-setup": "Windows WSL Setup",
+  "kubernetes-lens-setup": "Kubernetes & Lens Setup",
+  "postgres-setup": "Postgres Setup",
+  "other": "Other Setups",
+  "--- Workflow ---": {
+    "type": "separator"
+  },
+  "developer-accesses": "Developer Accesses",
+  "git-workflow": "Git Workflow",
+  "--- Rest ---": {
+    "type": "separator"
+  }
+}
