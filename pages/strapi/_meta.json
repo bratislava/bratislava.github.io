@@ -1,0 +1,8 @@
+{
+  "general-concepts": "General concepts",
+  "best-practices": "Best practices",
+  "make-content-public": "Make the content public",
+  "setup": "Setup",
+  "load-strapi-db-in-local-dev": "Load DB for local development",
+  "sync-strapi-db-to-different-env": "Sync DB between deployments"
+}

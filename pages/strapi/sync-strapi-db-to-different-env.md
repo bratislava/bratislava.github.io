@@ -1,4 +1,4 @@
-# Sync Strapi database to different environment
+# Sync Strapi database between different deployments
 
 Below is a set of commands to copy production Strapi data to staging environment - can be modified for other similar tasks. If you need exact copy of database, you should scale down strapi & next deployments and drop & recreate database before loading the data.
 

@@ -1,0 +1,200 @@
+# Eslint & Prettier
+
+import { Callout } from 'nextra/components'
+
+<Callout emoji="🚧">
+  This page is under construction.
+</Callout>
+
+We use [Prettier](https://prettier.io/) for code formatting, and [ESLint](https://eslint.org/) for code-quality. [Read more about the difference here](https://prettier.io/docs/en/comparison).
+
+After tweaking the configuration for a while, we came up with a configuration that works well for us.
+We use [eslint-config-auto](https://github.com/davidjbradshaw/eslint-config-auto)
+to automatically install (almost) all necessary eslint plugins based on the project's dependencies.
+
+This page explains how to set up eslint and prettier for new projects.
+
+<Callout emoji="⚠️" type="warning">
+  The `eslint-config-auto` suggest you to install the latest versions of plugins. However, there is quite new Prettier v3
+  and we didn't test it yet with our setup. So, we suggest you to install the latest versions we worked with:\
+  `"prettier": "2.8.8"`\
+  `"eslint-config-prettier": "8.10.0"`\
+  `"eslint-plugin-prettier": "4.2.1"` ---> only if forced to install, see sections below
+</Callout>
+
+## Installation and setup
+
+
+Add the following packages to your `devDependencies`:
+
+```bash
+yarn add -D prettier eslint eslint-config-auto
+```
+
+Create a `.prettierrc.js` file in the folder where the app lives (e.g. root, `next` or `strapi`):
+
+* ✅ We prefer `.js` over `.json` format, because it supports comments and are easier to extend.
+
+```js filename=".prettierrc.js" copy
+module.exports = {
+  trailingComma: 'all',
+  tabWidth: 2,
+  semi: false,
+  singleQuote: true,
+  printWidth: 100
+}
+```
+
+Add the following scripts to your `package.json`:
+
+* 💡 List all directories you want to lint, e.g. `components`, `pages` and `utils`...
+
+```json filename="package.json" {6,7,8,9}
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint components pages utils",
+    "lint:fix": "yarn lint --fix",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  }
+}
+```
+
+Create a `.eslintrc.js` file in the folder where the app lives (e.g. root, `next` or `strapi`):
+
+* ✅ We prefer `.js` over `.json` format, because it supports comments and are easier to extend.
+
+```js filename=".eslintrc.js" copy
+module.exports = {
+  extends: ['auto']
+}
+```
+
+and run
+```bash copy
+yarn lint
+```
+
+The `eslint-config-auto` package will provide you with a list of packages to install, e.g.:
+```bash
+To install the missing packages, please run the following command:
+
+npm install eslint-plugin-import@latest eslint-plugin-jsx-a11y@latest eslint-plugin-react@latest eslint-plugin-react-hooks@latest eslint-plugin-array-func@latest eslint-plugin-const-case@latest eslint-plugin-eslint-comments@latest eslint-plugin-html@latest eslint-plugin-json@latest eslint-plugin-markdown@latest eslint-plugin-no-constructor-bind@latest eslint-plugin-no-use-extend-native@latest eslint-plugin-optimize-regex@latest eslint-plugin-promise@latest eslint-plugin-simple-import-sort@latest eslint-plugin-sonarjs@latest eslint-plugin-switch-case@latest eslint-plugin-unicorn@latest eslint-plugin-no-secrets@latest eslint-plugin-no-unsanitized@latest eslint-plugin-pii@latest eslint-plugin-scanjs-rules@latest eslint-plugin-security@latest eslint-plugin-xss@latest @typescript-eslint/eslint-plugin eslint-config-airbnb@latest eslint-config-airbnb-typescript@latest @typescript-eslint/parser eslint-config-adjunct@latest --save-dev
+```
+
+Replace `npm install --save-dev` with `yarn add -D` and run the command to install all necessary plugins.
+Repeat if prompted to install more plugins, such as `eslint-config-prettier`.
+
+
+<Callout emoji="⚠️" type="warning">
+  When using VS Code and the app is in subdirectory, you need to add this extend `.vscode/settings.json`, e.g. for `next` app. [Issue](https://github.com/davidjbradshaw/eslint-config-auto/issues/50)
+</Callout>
+
+```json copy
+{
+  "eslint.workingDirectories": [
+    "./next"
+  ]
+}
+```
+
+## Intergrating Prettier with linter
+
+According to [Prettier docs](https://prettier.io/docs/en/integrating-with-linters):
+
+* ✅ install only `eslint-config-prettier` to disable all formatting-related eslint rules that might conflict with Prettier
+* ✅ set up your editor to run prettier on save - follow our [Editor Setup](/onboarding/editor-setup) guide
+* ❌ do not install `eslint-plugin-prettier` to run Prettier as an eslint rule ()
+* ❌ do not install `prettier-eslint`
+
+<Callout emoji="⚠️" type="warning">
+  The `eslint-config-auto` at the time of writing these docs forces us to install `eslint-plugin-prettier`.
+  So it is installed, but if this is fixed in the future, it will be removed.
+</Callout>
+
+## Additional setup for Frontend projects
+
+The `eslint-config-auto` is great, but it doesn't support Next.js and Tailwind out of the box.
+
+Install the appropriate version of `eslint-config-next` (it should be the same version as `next` package):
+
+```bash copy
+yarn add -D eslint-config-next
+```
+
+and useful tailwind classnames order plugin:
+
+```bash copy
+yarn add -D prettier-plugin-tailwindcss
+```
+
+Add following lines to config file:
+```js filename=".prettierrc.js" {7,8} copy
+module.exports = {
+  trailingComma: 'all',
+  tabWidth: 2,
+  semi: false,
+  singleQuote: true,
+  printWidth: 100,
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindFunctions: ['cx', 'classnames', 'clsx', 'twMerge']
+}
+```
+
+Additionally, we disable several rules, to fit our needs and code style. The full eslint config could like this:
+
+```js filename=".eslintrc.js" copy
+module.exports = {
+  extends: ['auto', 'plugin:@next/next/recommended'],
+  rules: {
+    /** Named export is easier to refactor automatically */
+    'import/prefer-default-export': 'off',
+    /** Too tedious to type every function return explicitly */
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    /** We prefer arrow functions */
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    /** It's annoying to refactor from one style to another */
+    'arrow-body-style': 'off',
+    /** These are exceptions that we use with "__" */
+    'no-underscore-dangle': [
+      2,
+      { allow: ['__NEXT_DATA__', '__NEXT_LOADED_PAGES__', '__typename'] },
+    ],
+    /** Links get confused for secrets */
+    'no-secrets/no-secrets': ['warn', { ignoreContent: '^http' }],
+    /** Too tedious */
+    'eslint-comments/disable-enable-pair': 'off',
+    /** We specify default props in props decomposition */
+    'react/require-default-props': 'off',
+    'lodash/prefer-noop': 'off',
+    /** Do not work in our case */
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    'pii/no-phone-number': 'off',
+    'xss/no-mixed-html': 'off',
+
+    // TODO: Turned off because of some missing setup
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/no-misused-promises': 'off',
+    // Solve warning "Promise-returning function provided to attribute where a void return was expected."
+    // '@typescript-eslint/no-misused-promises': [
+    //   2,
+    //   {
+    //     checksVoidReturn: {
+    //       attributes: false,
+    //     },
+    //   },
+    // ],
+  },
+  ignorePatterns: [
+    '*.config.*',
+    '.eslintrc.js',
+  ],
+}
+```

@@ -1,5 +1,11 @@
 # General Concepts
 
+import { Callout } from 'nextra/components'
+
+<Callout emoji="🕰️">
+  Some of the content on this page may be outdated.
+</Callout>
+
 We use [Strapi](https://strapi.io/) as our Headless CMS, from which we pull data into Next.js frontend via GraphQL.
 
 If you are not a developer and are interested primarily in managing content within Strapi, [this Strapi user guide on Content Manager](https://docs.strapi.io/user-docs/latest/content-manager/introduction-to-content-manager.html) is a good start.
@@ -32,7 +38,7 @@ Sometimes we want a more 'page-builder' like experience as a Strapi administrato
 
 On React's side, we then need to map each Strapi Component instance to an instance of a React component which can render it's data. There is usually a one-to-one mapping between the `__typename` field fetched via gql and a React component. A good example of this is the `Sections.tsx` file from bratislava.sk page:
 
-```tsx
+```tsx showLineNumbers copy
 const SectionContent = ({ section, locale }: { section: SectionsFragment; locale?: string }) => {
   const { t } = useTranslation("common")
   switch (section.__typename) {
@@ -100,7 +106,7 @@ You may require multiple 'dynamic' sections within your content-types. I.e. `Pag
 ![](../assets/dynamic-zone-header.png)
 ![](../assets/dynamic-zone.png)
 
-#### Sharing the same components within multiple content-Types
+#### Sharing the same components within multiple content-types
 
 The above does not mean that for each dynamic section the set of Strapi components need to be distinct. I.e. the body of `Pages` and `BlogPosts` consists of the same set of elements, and subsequentially, the code for the two renders the same set of React components and their respective content-types allow for same set of Strapi Components in their Sections dynamic zone.
 

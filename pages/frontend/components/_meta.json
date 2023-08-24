@@ -1,12 +1,14 @@
 {
   "cards": {
-    "display": "hidden"
+    "title": "Cards"
   },
   "links": {
     "display": "hidden"
   },
   "modals": {
     "display": "hidden"
+  },
+  "tables": {
+    "display": "hidden"
   }
 }
-

@@ -1,19 +1,17 @@
 {
   "index": "Introduction",
   "onboarding": "Setup & Onboarding",
-  "-- Projects --": {
+  "-- Eslint --": {
     "type": "separator"
   },
-  "bratislava.sk": "bratislava.sk",
-  "konto.bratislava.sk": "konto.bratislava.sk",
-  "muzeumbratislava.sk": "muzeumbratislava.sk",
+  "eslint-and-prettier": "Eslint & Prettier",
   "-- Web development --": {
     "type": "separator"
   },
+  "frontend": "Frontend",
   "strapi": "Strapi",
   "graphql": "GraphQL",
   "meilisearch": "Meilisearch",
-  "frontend": "Frontend",
   "-- Backend --": {
     "type": "separator"
   },
@@ -23,5 +21,11 @@
     "type": "separator"
   },
   "deployment-and-infrastructure": "Deployment & Infrastructure",
-  "monitoring-and-observability": "Monitoring & Observability"
+  "monitoring-and-observability": "Monitoring & Observability",
+  "-- Projects --": {
+    "type": "separator"
+  },
+  "bratislava.sk": "bratislava.sk",
+  "konto.bratislava.sk": "konto.bratislava.sk",
+  "muzeumbratislava.sk": "muzeumbratislava.sk"
 }

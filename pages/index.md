@@ -13,7 +13,7 @@ Hey! 👋 If you're a new contributor, member of the Innovations team or an exte
 ### General
 
 - [Editor setup](onboarding/editor-setup)
-- [Git workflow](onboarding/workflows/git-workflow)
+- [Git workflow](onboarding/git-workflow)
 - [Docker setup](onboarding/docker-setup)
 - [Postgres setup](onboarding/postgres-setup)
 
@@ -27,7 +27,6 @@ If you're not familiar with any of these technologies:
 - [GraphQL](https://graphql.org/), which we use for connecting Next to Strapi
 - [GraphQL Codegen](https://www.graphql-code-generator.com/), which we use to generate typesafe SDK from our GraphQL queries
 - [Meilisearch](https://www.meilisearch.com/), often connected to Strapi via [meilisearch-strapi plugin](https://github.com/meilisearch/strapi-plugin-meilisearch)
-- [Sentry](https://sentry.io/)
 
 Afterwards:
 

@@ -2,20 +2,6 @@
 
 This guide focuses on specific updates to the Strapi setup related to our own needs and requirements. For more general information about Strapi, please refer to the [official documentation](https://strapi.io/documentation/developer-docs/latest/getting-started/introduction.html).
 
-## Making content accessible without authentication
-
-This needs to be done:
-
-- when you setup a new instance or database, either locally or on a new deployment
-- every time you add a new content type, on every deployment
-
-Go to `Settings` -> in the sidebar `USERS & PERMISSIONS PLUGIN: Roles` -> edit icon ✏️ next to the `Public` role -> `Permissions`. In all of your custom content types, particularly the newly added ones, make sure the following permissions are checked:
-
-- find
-- findOne (if available)
-
-![](./assets/strapi-public-permissions.png)
-
 ### One-time production setup
 
 The steps below are needed to make our strapi instance deployment (and production) ready.

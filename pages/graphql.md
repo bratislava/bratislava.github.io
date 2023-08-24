@@ -50,9 +50,9 @@ yarn add -D @graphql-codegen/cli @graphql-codegen/typescript @graphql-codegen/ty
 To use the generated client (sdk) against your graphql server, you need to initialize it, passing in the server endpoint as a parameter. We usually setup a file like `utils/gql.ts` from which we export .the typed client itself The file below deals with different formats of urls being provided from within Kubernetes deployment and local development.
 
 ```ts
-import { getSdk } from "../graphql/index"
-import { GraphQLClient } from "graphql-request"
-import getConfig from "next/config"
+import { getSdk } from '../graphql/index'
+import { GraphQLClient } from 'graphql-request'
+import getConfig from 'next/config'
 
 const { serverRuntimeConfig } = getConfig()
 
@@ -61,13 +61,13 @@ const { serverRuntimeConfig } = getConfig()
 
 const protocol =
   process.env.STRAPI_URL &&
-  (process.env.STRAPI_URL.startsWith("http://") || process.env.STRAPI_URL.startsWith("https://"))
-    ? ""
-    : "http://"
+  (process.env.STRAPI_URL.startsWith('http://') || process.env.STRAPI_URL.startsWith('https://'))
+    ? ''
+    : 'http://'
 const gql = new GraphQLClient(
   `${
     process.env.STRAPI_URL ? `${protocol}${serverRuntimeConfig.strapiUrl}` : window.location.origin
-  }/graphql`
+  }/graphql`,
 )
 export const client = getSdk(gql)
 ```
@@ -103,7 +103,7 @@ If everything was setup correctly, this will generate `graphql/index.ts` file wi
 Continuing from previous example, if you import which will will return the following data:
 
 ```ts
-import { client } from "../utils/gql"
+import { client } from '../utils/gql'
 
 // ...
 
@@ -141,12 +141,12 @@ If you do this from frontend (loading data from within a React component), you l
 
 ```ts
 const MyComponent = () => {
-  const { data, error } = useSWR("TotalPagesQuery", () => client.TotalPages())
+  const { data, error } = useSWR('TotalPagesQuery', () => client.TotalPages())
   const isLoading = !data && !error
   return (
     <div>
-      Total pages count:{" "}
-      {isLoading ? "Loading" : error ? "Error!" : data.pages.meta.pagination.total}
+      Total pages count:{' '}
+      {isLoading ? 'Loading' : error ? 'Error!' : data.pages.meta.pagination.total}
     </div>
   )
 }
