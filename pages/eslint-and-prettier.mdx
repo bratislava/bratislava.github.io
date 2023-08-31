@@ -16,10 +16,11 @@ This page explains how to set up eslint and prettier for new projects.
 
 <Callout emoji="⚠️" type="warning">
   The `eslint-config-auto` suggest you to install the latest versions of plugins. However, there is quite new Prettier v3
-  and we didn't test it yet with our setup. So, we suggest you to install the latest versions we worked with:\
+  and we didn't test it yet with our setup. So, we suggest you to install the versions we worked with:\
   `"prettier": "2.8.8"`\
   `"eslint-config-prettier": "8.10.0"`\
-  `"eslint-plugin-prettier": "4.2.1"` ---> only if forced to install, see sections below
+  `"eslint-plugin-prettier": "4.2.1"` ---> only if forced to install, see sections below\
+  `"prettier-plugin-tailwindcss": "0.4.1"` ---> only if using Tailwind
 </Callout>
 
 ## Installation and setup
@@ -128,10 +129,11 @@ yarn add -D eslint-config-next
 and useful tailwind classnames order plugin:
 
 ```bash copy
-yarn add -D prettier-plugin-tailwindcss
+# add version 0.4.x with -T flag to fix minor version, because 0.5.x requires prettier v3
+yarn add -D -T prettier-plugin-tailwindcss@0.4.1
 ```
 
-Add following lines to config file:
+Add following lines to config file.
 ```js filename=".prettierrc.js" {7,8} copy
 module.exports = {
   trailingComma: 'all',
@@ -140,9 +142,10 @@ module.exports = {
   singleQuote: true,
   printWidth: 100,
   plugins: ['prettier-plugin-tailwindcss'],
-  tailwindFunctions: ['cx', 'classnames', 'clsx', 'twMerge']
+  tailwindFunctions: ['cx', 'classnames', 'clsx', 'cn', 'twMerge', 'tw' ]
 }
 ```
+([clsx](https://www.npmjs.com/package/clsx), [classnames](https://www.npmjs.com/package/classnames), [tailwind-merge](https://www.npmjs.com/package/tailwind-merge), `tw` from [twrnc](https://www.npmjs.com/package/twrnc), `cn` inspired by [shadcn/ui](https://ui.shadcn.com/docs/installation/manual) (step 7) ,
 
 Additionally, we disable several rules, to fit our needs and code style. The full eslint config could like this:
 
