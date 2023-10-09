@@ -23,6 +23,7 @@ If you're not familiar with any of these technologies:
 
 - [NextJS](https://nextjs.org)
 - [Typescript](https://www.typescriptlang.org)
+- [TailwindCSS](https://tailwindcss.com/)
 - [Strapi CMS](https://strapi.io/)
 - [GraphQL](https://graphql.org/), which we use for connecting Next to Strapi
 - [GraphQL Codegen](https://www.graphql-code-generator.com/), which we use to generate typesafe SDK from our GraphQL queries
