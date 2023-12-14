@@ -24,6 +24,14 @@ you can load the dump `newest-db-dump.sql` like so:
 psql -h localhost -p 5432 -U strapi your_strapi_db < newest-db-dump.sql
 ```
 
+## Docker DB
+Commands needed to seed postgres on docker container. Please replace `your_strapi_db` with the strapi db name.
+
+1. Copy dump:
+   `docker cp strapi-backup.sql your_strapi_db-postgres-1:/strapi-backup.sql`
+2. Seed db:
+   `docker exec your_strapi_db-postgres-1 sh -c "psql -U strapi strapi < strapi-backup.sql"`
+
 > It's not always necessary, but recommended, to have a role called `strapi` on your local Postgres server when doing this with a Strapi db dump - as the tables may reference role with this name directly. Alternative might be editing the dump and renaming the role referenced to one you have available locally.
 
 To login into the db dumped this way, you may need to ask for access from the project lead.
