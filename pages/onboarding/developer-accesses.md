@@ -21,14 +21,14 @@ Not needed for everyone or needed for specific roles - usually not needed during
 - AWS - Cognito, emails, sms...
 - Mailgun
 - Mailchimp
+- Grafana
 - Sentry - error monitoring and alerting on native projects
-- Expo.io - if you are working on mobile apps
 - Inovacie gmail account
-- Bratislava's google analytics account
 - Plausible.io analytics
 - Hotjar analytics
+- Bratislava's google analytics account
 - Mapbox
 - Websupport (one for Bratislava, multiple others for other clients/projects)
-- AppleID (mostly for mobile dev)
-
-
+- Expo.io (mostly for mobile dev)
+- Apple App Store Connect (mostly for mobile dev)
+- Google Play Console (mostly for mobile dev)
