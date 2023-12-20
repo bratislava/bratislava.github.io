@@ -17,7 +17,7 @@ that help you with formatting and a suitable typescript integration (which is a 
 
 
 ### Setup formatting and linting
-Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), and [Remove Unused Imports](https://marketplace.visualstudio.com/items?itemName=kuscamara.remove-unused-imports).
 
 Open **User Settings (JSON)** and insert following lines:
 
@@ -26,7 +26,7 @@ Open **User Settings (JSON)** and insert following lines:
   // ...
 
   "editor.codeActionsOnSave": {
-    // "source.organizeImports": true,
+    "source.removeUnusedImports": true,
     "source.formatDocument": true,
     "source.fixAll.eslint": true
   },
@@ -40,15 +40,10 @@ Open **User Settings (JSON)** and insert following lines:
 ```
 
 
-- `organizeImports` removes all unused imports and sorts them, but it sometimes conflicts wit eslint, so you have to run it manually.
+- `removeUnusedImports` removes all unused imports without sorting them as `source.organizeImports` does. This way conflicts with ESLint are avoided.
 - `formatDocument` will run prettier, and `fixAll.eslint` will run eslint fix. The order of these commands is important.
 - `files.insertFinalNewline` will add a new line at the end of the document.
 - `...preferences.importModuleSpecifier` will make sure you always use absolute imports, which is a good practice.
-
-<Callout emoji="ℹ️" type="info">
-  If you find workaround how to run `organizeImports` without sorting, just for removing of unused imports, let us know!\
-  Also if you have some suggestions for better settings, or other useful plugins, reach out to us. :)
-</Callout>
 
 
 ### Extensions
