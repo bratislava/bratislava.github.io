@@ -28,7 +28,7 @@ We are using labels and assignees to navigate easily through the open pull reque
 
 The usual PR workflow involves assigning the PR between a selected reviewer and the author, while also swapping the `needs work` and `needs review` labels depending on the current state. Once the reviewer is satisfied, they'll assign a `fix & ship` label, leaving it up to the author to merge at his or hers convenience, optionally fixing some minor issues before doing so (without the need for a further review).
 
-Some project have already set up automatic labeling depending on PR state (PR Labeler workflow).
+Some projects have already set up automatic labeling depending on PR state (PR Labeler workflow).
 
 ## Resolving conversations
 
