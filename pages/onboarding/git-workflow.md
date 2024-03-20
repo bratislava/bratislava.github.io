@@ -1,6 +1,6 @@
 # Git workflow (committing, submitting & reviewing pull requests)
 
-To contribute to our project you will need a account on [GitHub](https://github.com/) and [git](https://git-scm.com/). Some of the systems (some of the \*nix and Mac) already come with git pre-installed, which you can check by running
+To contribute to our project you will need an account on [GitHub](https://github.com/) and [git](https://git-scm.com/). Some of the systems (some of the \*nix and Mac) already come with git pre-installed, which you can check by running
 
 ```bash
 git --version
@@ -28,6 +28,8 @@ We are using labels and assignees to navigate easily through the open pull reque
 
 The usual PR workflow involves assigning the PR between a selected reviewer and the author, while also swapping the `needs work` and `needs review` labels depending on the current state. Once the reviewer is satisfied, they'll assign a `fix & ship` label, leaving it up to the author to merge at his or hers convenience, optionally fixing some minor issues before doing so (without the need for a further review).
 
+Some project have already set up automatic labeling depending on PR state (PR Labeler workflow).
+
 ## Resolving conversations
 
 It is helpful to resolve (github) conversations you have started if you feel the topic has been answered. This goes particularly for reviewers doing multiple passes on a single PR - try to resolve what you can before adding more comments on a subsequent pass.
@@ -36,4 +38,4 @@ It is helpful to resolve (github) conversations you have started if you feel the
 
 Squash & merge into master. Liberal use of `rebase` for cleaning up your own feature branches (mainly if you tend to create and push work-in-progress commits) is encouraged. If your local commits are _way_ out of control, you might be required to do so before your PR is accepted (but this happens rarely).
 
-_Still, be careful_ if someone else branches off one of your feature branches - to make his life easier, you should avoid rebasing, if possible, past the point they've branched at - at least until your work is ready to become a part of master.
+_Still, be careful_ if someone else branches off one of your feature branches - to make their life easier, you should avoid rebasing, if possible, past the point they've branched at - at least until your work is ready to become a part of master.
