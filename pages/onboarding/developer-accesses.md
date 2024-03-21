@@ -6,14 +6,25 @@ This page lists all the additional services that are needed for specific roles o
 
 We list them here so that you know about all the potential developer accesses you might need, but they are usually not needed during onboarding.
 
+## SSO accesses
+
+If you are internal developer, and it's needed for your role (ask your buddy or project lead), you will be added into `OIADS_EMPLOYEES` group in Azure AD, which gives you access to:
+
+- Harbor - [harbor.bratislava.sk](https://harbor.bratislava.sk/)
+- Grafana - [grafana.bratislava.sk](https://grafana.bratislava.sk/)
+- Minio - [cdn.bratislava.sk](https://cdn.bratislava.sk/) a [s3.bratislava.sk](https://console.s3.bratislava.sk/)
+
+Guests / external developers can be arranged either via different group or assigned to the apps directly.
+
 ## Optional accesses
 
 - VPN access
-- Grafana
-- AWS Cognito, emails, sms...
+- Azure devops
+- AWS - e.g. Cognito, emails, sms...
 - Mailgun
 - Mailchimp
 - Mapbox
+- Grafana - additional rights
 - Inovacie gmail account
 - Plausible.io analytics
 - Hotjar analytics
