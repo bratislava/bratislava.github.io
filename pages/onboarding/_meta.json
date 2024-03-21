@@ -1,6 +1,6 @@
 {
   "editor-setup": "Editor Setup",
-  "docker-setup": "Docker Setup",
+  "docker-setup": "Docker / Podman Setup",
   "wsl-setup": "Windows WSL Setup",
   "kubernetes-lens-setup": "Kubernetes & Lens Setup",
   "postgres-setup": "Postgres Setup",
@@ -9,8 +9,5 @@
     "type": "separator"
   },
   "developer-accesses": "Developer Accesses",
-  "git-workflow": "Git Workflow",
-  "--- Rest ---": {
-    "type": "separator"
-  }
+  "git-workflow": "Git Workflow"
 }
