@@ -1,11 +1,11 @@
 # Editor setup
 
-import { Callout } from "nextra/components";
+import { Callout } from 'nextra/components'
 
 <Callout emoji="🙏️">
-  Regardless of the editor you use, you should always **format and lint** your code **on save**, or at least before committing.
-  Formatting and linting should be performed by **locally installed Prettier and ESlint** to prevent inconsistencies.
-  We have no lint-staged or CI checks set up for this, so it's up to each developer to keep the code clean.
+  Regardless of the editor you use, you should always **format and lint** your code **on save**, or
+  at least before committing. Formatting and linting should be performed by **locally installed
+  Prettier and ESlint** to prevent inconsistencies.
 </Callout>
 
 ## Visual Studio Code
@@ -15,8 +15,8 @@ We recommend using [Visual Studio Code](https://code.visualstudio.com/) with the
 If you prefer a different editor, it's completely fine. Still, you should find the counterparts of the extensions and setup mentioned above
 that help you with formatting and a suitable typescript integration (which is a part of default VS Code installation).
 
-
 ### Setup formatting and linting
+
 Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), and [Remove Unused Imports](https://marketplace.visualstudio.com/items?itemName=kuscamara.remove-unused-imports).
 
 Open **User Settings (JSON)** and insert following lines:
@@ -39,12 +39,10 @@ Open **User Settings (JSON)** and insert following lines:
 }
 ```
 
-
 - `removeUnusedImports` removes all unused imports without sorting them as `source.organizeImports` does. This way conflicts with ESLint are avoided.
 - `formatDocument` will run prettier, and `fixAll.eslint` will run eslint fix. The order of these commands is important.
 - `files.insertFinalNewline` will add a new line at the end of the document.
 - `...preferences.importModuleSpecifier` will make sure you always use absolute imports, which is a good practice.
-
 
 ### Extensions
 
@@ -57,12 +55,14 @@ These are not crucial, but either they improve dev experience, or they may help 
 - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) - for yaml and kubernetes syntax support
 
 For frontend devs:
+
 - [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - for frontend devs
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag) - for easier React and html tags renaming
 - [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) - for automatically inserting closing tag
 - [Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets)
 
 Other useful extensions:
+
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - git blame, history, commit graph, etc.
 - [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) - for coloring of different project windows
 
@@ -100,7 +100,6 @@ This is how your full User Settings could look like:
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "svg.preview.mode": "svg"
 }
-
 ```
 
 ## WebStorm
@@ -112,8 +111,8 @@ If you use WebStorm, make sure to run eslint and prettier on save (or at least b
 Below are the setting that worked for me. You have to enable eslint and prettier, and set them to run on save.
 
 <Callout emoji="⚠️" type="warning">
-  Other combination of checked options may lead to inconsistencies. I also added `json` to be formatted by prettier,
-  and I have to choose prettier for each project manually.
+  Other combination of checked options may lead to inconsistencies. I also added `json` to be
+  formatted by prettier, and I have to choose prettier for each project manually.
 </Callout>
 
 ![WebStorm On Save setup](./assets/webstorm-settings-on-save.png)
@@ -123,6 +122,7 @@ Below are the setting that worked for me. You have to enable eslint and prettier
 ![WebStorm Eslint setup](./assets/webstorm-settings-eslint.png)
 
 ### Plugins
+
 - [ESLint Restart Service Action](https://plugins.jetbrains.com/plugin/14119-eslint-restart-service-action)
 - [.env files support](https://plugins.jetbrains.com/plugin/9525--env-files-support)
 - [MDX](https://plugins.jetbrains.com/plugin/14944-mdx) - ⚠️ it has a bug that adds new line before imports in `.mdx` files on each run of `Optimize Imports` actions
