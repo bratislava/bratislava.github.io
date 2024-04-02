@@ -2,6 +2,8 @@
 
 import { Callout } from 'nextra/components'
 
+This page explains how to set up eslint and prettier for new projects.
+
 <Callout emoji="🚧">
   This page is under construction.
 </Callout>
@@ -11,8 +13,6 @@ We use [Prettier](https://prettier.io/) for code formatting, and [ESLint](https:
 After tweaking the configuration for a while, we came up with a configuration that works well for us.
 We use [eslint-config-auto](https://github.com/davidjbradshaw/eslint-config-auto)
 to automatically install (almost) all necessary eslint plugins based on the project's dependencies.
-
-This page explains how to set up eslint and prettier for new projects.
 
 <Callout emoji="⚠️" type="warning">
   The `eslint-config-auto` suggest you to install the latest versions of plugins. However, there is quite new Prettier v3
@@ -173,12 +173,8 @@ module.exports = {
     /** We specify default props in props decomposition */
     'react/require-default-props': 'off',
     'lodash/prefer-noop': 'off',
-    /** Do not work in our case */
+    /** Some libraries produce a lot of eslint errors with this rule */
     '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/no-unsafe-call': 'off',
-    '@typescript-eslint/no-unsafe-return': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off',
-    '@typescript-eslint/no-unsafe-argument': 'off',
     'pii/no-phone-number': 'off',
     'xss/no-mixed-html': 'off',
 

@@ -1,33 +1,35 @@
 # Developer Accesses
 
-List of accesses for internal developers & contractors. Does not go into documents signed or other HR stuff 🙂
+Main team-wide accesses are listed in common onboarding - currently in Miro, and they usually come along with your @bratislava.sk account.
 
-## General
+This page lists all the additional services that are needed for specific roles or projects.
 
-- Slack
-- Github
-- add to OIADS_EMPLOYEES AD group - again for internals, this gives access to [Harbor](https://harbor.bratislava.sk/), [Grafana](https://grafana.bratislava.sk/), [Minio CDN](https://cdn.bratislava.sk/) and apps deployed on DEV cluster. Guests / external users can be arranged, either via different group or assigned to the apps directly.
-- @bratislava email and access to Bratislava VPN - usually goes hand in hand and is needed only for internal users
-- Vema (BA HR system) access - accessible only from Magistrate network, internals only
-- Azure devops (mainly for database backups)
-- Miro - mainly for weekly retrospectives, internals only
+We list them here so that you know about all the potential developer accesses you might need, but they are usually not needed during onboarding.
 
-## Optional
+## SSO accesses
 
-Not needed for everyone or needed for specific roles - usually not needed during onboarding, listed so that we know about the services used
+If you are internal developer, and it's needed for your role (ask your buddy or project lead), you will be added into `OIADS_EMPLOYEES` group in Azure AD, which gives you access to:
 
-- Figma - this is often per-project
-- Google Cloud Console - google specific services (i.e. places api, recaptcha)
-- AWS - Cognito, emails, sms...
+- Harbor - [harbor.bratislava.sk](https://harbor.bratislava.sk/)
+- Grafana - [grafana.bratislava.sk](https://grafana.bratislava.sk/)
+- Minio - [cdn.bratislava.sk](https://cdn.bratislava.sk/) a [s3.bratislava.sk](https://console.s3.bratislava.sk/)
+
+Guests / external developers can be arranged either via different group or assigned to the apps directly.
+
+## Optional accesses
+
+- VPN access
+- Azure devops
+- AWS - e.g. Cognito, emails, sms...
 - Mailgun
 - Mailchimp
-- Grafana
-- Sentry - error monitoring and alerting on native projects
+- Mapbox
+- Grafana - additional rights
 - Inovacie gmail account
 - Plausible.io analytics
 - Hotjar analytics
-- Bratislava's google analytics account
-- Mapbox
+- Google Cloud Console - google specific services (i.e. places api, recaptcha)
+- Bratislava's Google Analytics account
 - Websupport (one for Bratislava, multiple others for other clients/projects)
 - Expo.io (mostly for mobile dev)
 - Apple App Store Connect (mostly for mobile dev)
