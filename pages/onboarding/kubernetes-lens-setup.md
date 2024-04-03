@@ -1,4 +1,4 @@
-# Kubernetes / Lens setup
+# Kubernetes / OpenLens setup
 
 You can only do this with sufficient access rights - ask Innovations team or Bratislava IT department if connecting to k8s infrastructure is relevant to you.
 
@@ -8,8 +8,9 @@ You can only do this with sufficient access rights - ask Innovations team or Bra
 - Download and install vsphere tanzu plugin [here](https://k8s.tanzu.bratislava.sk), you need to be connected on cable or through VPN to magistrate network
   - Windows - copy `kubectl` and `kubectl-vsphere` to `c:/windows/system32` (needed admin rights) otherwise `kubectl vsphere login` commands will not work
 - Install [kubeseal](https://github.com/bitnami-labs/sealed-secrets#installation) `brew install kubeseal` (`apt install kubeseal`), a tool for generating secrets
-- Download and install Kubernetes [Lens](https://k8slens.dev), a GUI tool for easier management of cluster deployments
-- If you prefer command line environments there is also a tool called [k9s](https://k9scli.io/), which can serve as alternative to Lens.
+- Download and install Kubernetes [OpenLens](https://github.com/MuhammedKalkan/OpenLens) `brew install openlens`, a GUI tool for easier management of cluster deployments
+  - Also note the [extensions section](https://github.com/MuhammedKalkan/OpenLens?tab=readme-ov-file#extensions) to add the Node/Pod menu extension.
+- If you prefer command line environments there is also a tool called [k9s](https://k9scli.io/), which can serve as alternative to OpenLens.
 
 ## Login
 
@@ -24,7 +25,7 @@ You can only do this with sufficient access rights - ask Innovations team or Bra
     - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-innov-prod -u {{username}}`
     - `kubectl vsphere login --server=10.10.10.1 --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name=tkg-master -u {{username}}`
       (optional, you don't need this, its only master cluster)
-- open Lens and you should see clusters
+- open OpenLens and you should see clusters
 
 ## Tips & Tricks
 
