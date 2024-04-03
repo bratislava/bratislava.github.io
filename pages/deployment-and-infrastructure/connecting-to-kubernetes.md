@@ -1,13 +1,13 @@
 # Connecting to Kubernetes
 
-This section briefly shows how to do some basic connecting to Service and PODs in kubernetes cluster through `kubectl` or kubernetes Lens.  
+This section briefly shows how to do some basic connecting to Service and PODs in kubernetes cluster through `kubectl` or kubernetes OpenLens.  
 As stated you will obviously need access to our cluster. To login to specific cluster you can follow our [Login guide](../onboarding/kubernetes-lens-setup).
 
 ## How to connect to database
 
-### Lens
+### OpenLens
 
-1. Open Lens and on the left hand side panel navigate to `Network -> Services`.
+1. Open OpenLens and on the left hand side panel navigate to `Network -> Services`.
 2. Find the Service that you want to connect to, usually something like `anything-database` or `anything-database-service`
 3. Click on right service and scroll down to find Connection section and under there should be a button `Forward`. Click it and choose your local free port
 4. Now your database should be accessible through localhost
@@ -26,7 +26,7 @@ For more information checkout [official port-forward](https://kubernetes.io/docs
 
 ## How to see logs
 
-### Lens
+### OpenLens
 
 You can follow this official video guide on extracting Logs https://www.youtube.com/watch?v=QIHqOd05TBA.
 
@@ -42,9 +42,9 @@ For more information, check out [interacting with running pods](https://kubernet
 
 ## How to connect to app/pod terminal
 
-### Lens
+### OpenLens
 
-1. Open Lens and on the left hand side panel navigate to `Workloads -> Pods`
+1. Open OpenLens and on the left hand side panel navigate to `Workloads -> Pods`
 2. Find the POD in question and click on it
 3. Click in right top corner find Pod Shell button (next to Pod Logs)
 
