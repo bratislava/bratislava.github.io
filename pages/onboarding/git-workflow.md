@@ -39,3 +39,7 @@ It is helpful to resolve (github) conversations you have started if you feel the
 Squash & merge into master. Liberal use of `rebase` for cleaning up your own feature branches (mainly if you tend to create and push work-in-progress commits) is encouraged. If your local commits are _way_ out of control, you might be required to do so before your PR is accepted (but this happens rarely).
 
 _Still, be careful_ if someone else branches off one of your feature branches - to make their life easier, you should avoid rebasing, if possible, past the point they've branched at - at least until your work is ready to become a part of master.
+
+## Tips and tricks
+
+Line endings - we have both linux and windows contributors in our repos. To void issues with different encoding of line endings consider using gits autocrlf config `git config core.autocrlf true` this will avoid large whitespace diffs with no changes
