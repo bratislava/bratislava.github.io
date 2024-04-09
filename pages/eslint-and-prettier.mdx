@@ -64,11 +64,11 @@ Add the following scripts to your `package.json`:
 }
 ```
 
-Create a `.eslintrc.js` file in the folder where the app lives (e.g. root, `next` or `strapi`):
+Create a `.eslint.config.js` file in the folder where the app lives (e.g. root, `next` or `strapi`):
 
 * ✅ We prefer `.js` over `.json` format, because it supports comments and are easier to extend.
 
-```js filename=".eslintrc.js" copy
+```js filename=".eslint.config.js" copy
 module.exports = {
   extends: ['auto']
 }
@@ -149,7 +149,7 @@ module.exports = {
 
 Additionally, we disable several rules, to fit our needs and code style. The full eslint config could like this:
 
-```js filename=".eslintrc.js" copy
+```js filename=".eslint.config.js" copy
 module.exports = {
   extends: ['auto', 'plugin:@next/next/recommended'],
   rules: {
@@ -192,8 +192,7 @@ module.exports = {
     // ],
   },
   ignorePatterns: [
-    '*.config.*',
-    '.eslintrc.js',
+    '*.config.*'
   ],
 }
 ```
