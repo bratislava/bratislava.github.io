@@ -1,4 +1,10 @@
 {
+  "components": {
+    "title": "Components"
+  },
+  "svg": {
+    "title": "SVG setup"
+  },
   "captcha": {
     "display": "hidden"
   },

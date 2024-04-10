@@ -1,0 +1,171 @@
+# SVG setup
+
+
+
+
+
+
+
+
+
+import { Callout } from 'nextra/components'
+
+SVG files are not supported by default. To support SVG, we use [SVGR](https://react-svgr.com/) to convert SVG files to React components.
+
+SVGR uses [SVGO](https://github.com/svg/svgo) that provides a default optimization preset. According to their docs,
+this preset "safely removes" some values "without impacting rendering", but this is not true for `viewBox` attribute that prevents svgs from scaling ([see issue with removing viewBox](https://github.com/svg/svgo/issues/1128)) and [official plugin docs](https://svgo.dev/docs/plugins/remove-viewbox/).
+
+Therefore, we additionally disable `removeViewBox` plugin to be able to resize icons.
+
+For new projects, follow the setup below.\
+For existing projects, see the older setup at the bottom of this page.
+
+## Setup @svgr/webpack
+
+Install `@svgr/webpack` as dev dependency:
+
+```bash copy
+yarn add -D @svgr/webpack
+```
+
+Create new file `svgo.config.mjs` following [SVGO configuration](https://github.com/svg/svgo?tab=readme-ov-file#configuration) and
+add this setup to your `next.config.js` following official [SVGR docs fo Next.js](https://react-svgr.com/docs/next/):
+
+```js copy filename="svgo.config.mjs"
+/**
+ * We use default preset, and additionally we disable `removeViewBox` plugin, because it prevents resizing icons by css.
+ *
+ * Docs: https://github.com/svg/svgo?tab=readme-ov-file#configuration
+ */
+const svgoConfig = {
+  plugins: [
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false,
+        },
+      },
+    },
+  ],
+}
+
+export default svgoConfig
+```
+
+```js copy filename="next.config.mjs"
+import svgoConfig from './svgo.config.mjs'
+
+const nextConfig = {
+  // ...
+  // Docs: https://react-svgr.com/docs/next/
+  webpack(config) {
+    // Grab the existing rule that handles SVG imports
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'))
+
+    config.module.rules.push(
+      // Reapply the existing rule, but only for svg imports ending in ?url
+      {
+        ...fileLoaderRule,
+        test: /\.svg$/i,
+        resourceQuery: /url/, // *.svg?url
+      },
+      // Convert all other *.svg imports to React components
+      {
+        test: /\.svg$/i,
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        use: {
+          loader: '@svgr/webpack',
+          options: { svgoConfig },
+        },
+      },
+    )
+
+    // Modify the file loader rule to ignore *.svg, since we have it handled now.
+    fileLoaderRule.exclude = /\.svg$/i
+
+    return config
+  },
+}
+```
+
+Declare svg types in declaration file:
+
+```ts filename="./index.d.ts" copy
+declare module '*.svg' {
+  import { FC, SVGProps } from 'react'
+
+  const content: FC<SVGProps<SVGElement>>
+  export default content
+}
+
+declare module '*.svg?url' {
+  const content: any
+  export default content
+}
+```
+
+## Old setup for @svgr/webpack v6.5.1
+
+<Callout emoji="⚠️" type="warning">
+  Important: This setup does not work in server components, and will not work with newer versions of `@svgr/webpack`.
+</Callout>
+
+Install `@svgr/webpack` v6.5.1 as dev dependency:
+
+```bash copy
+yarn add -D @svgr/webpack@6.5.1
+```
+
+Add the following setup to your `next.config.js`:
+
+```js copy
+const nextConfig = {
+  reactStrictMode: true,
+  output: 'standalone',
+  // ...
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      issuer: /\.[jt]sx?$/,
+      use: {
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: [
+              {
+                name: 'removeViewBox',
+                active: false,
+              },
+            ],
+          },
+        },
+      },
+    })
+    return config
+  },
+  //...
+}
+```
+
+Declare svg type in declaration file:
+
+```ts filename="./index.d.ts" copy
+declare module '*.svg' {
+  import { FC, SVGProps } from 'react'
+
+  const content: FC<SVGProps<SVGElement>>
+  export default content
+}
+```
+
+## How to use .svg files
+
+TODO: move this part somewhere else
+
+1. Export the .svg file from figma or you other provided .svg file.
+2. Place the file into assets.
+3. Change all instance of (stroke) color to `currentColor` in the .svg file, so the icon can be colored by css.
+4. Export the icon in barrel file as `export { default as YourNewIcon } from './icon-name.svg'`. Make sure to follow naming convention from existing file.
+5. Import the icon in your component and use it as a component `<YourNewIcon />`.
