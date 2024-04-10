@@ -2,16 +2,23 @@
 
 
 
+
+
+
+
+
+
 import { Callout } from 'nextra/components'
 
 SVG files are not supported by default. To support SVG, we use [SVGR](https://react-svgr.com/) to convert SVG files to React components.
 
 SVGR uses [SVGO](https://github.com/svg/svgo) that provides a default optimization preset. According to their docs,
-this preset "safely removes" some values "without impacting rendering", but this is not true for `viewBox` attribute ([see issue with removing viewBox](https://github.com/svg/svgo/issues/1128)).
+this preset "safely removes" some values "without impacting rendering", but this is not true for `viewBox` attribute that prevents svgs from scaling ([see issue with removing viewBox](https://github.com/svg/svgo/issues/1128)) and [official plugin docs](https://svgo.dev/docs/plugins/remove-viewbox/).
 
 Therefore, we additionally disable `removeViewBox` plugin to be able to resize icons.
 
-For new projects, follow the setup below. For existing projects, see the older setup at the bottom of this page.
+For new projects, follow the setup below.\
+For existing projects, see the older setup at the bottom of this page.
 
 ## Setup @svgr/webpack
 
