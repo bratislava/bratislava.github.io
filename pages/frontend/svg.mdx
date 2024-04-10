@@ -1,5 +1,7 @@
 # SVG setup
 
+
+
 import { Callout } from 'nextra/components'
 
 SVG files are not supported by default. To support SVG, we use [SVGR](https://react-svgr.com/) to convert SVG files to React components.
@@ -78,6 +80,22 @@ const nextConfig = {
 
     return config
   },
+}
+```
+
+Declare svg types in declaration file:
+
+```ts filename="./index.d.ts" copy
+declare module '*.svg' {
+  import { FC, SVGProps } from 'react'
+
+  const content: FC<SVGProps<SVGElement>>
+  export default content
+}
+
+declare module '*.svg?url' {
+  const content: any
+  export default content
 }
 ```
 
