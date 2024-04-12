@@ -197,3 +197,51 @@ module.exports = {
   ],
 }
 ```
+
+## Additional setup for Backend projects
+
+On backend we use NestJS, thus its eslint config should also be installed.
+
+Install `@darraghor/eslint-plugin-nestjs-typed` [(source)](https://www.npmjs.com/package/@darraghor/eslint-plugin-nestjs-typed)
+
+```bash copy
+yarn add -D @darraghor/eslint-plugin-nestjs-typed
+```
+
+and add following lines to the config
+
+```js
+module.exports = {
+    extends: ["plugin:@darraghor/nestjs-typed/recommended"],
+    plugins: ["@darraghor/nestjs-typed"],
+};
+```
+
+There are also some specific rules which should be turned off or modified, specifically
+
+```js
+module.exports = {
+  rules: {
+    'max-classes-per-file': 'off',
+    'const-case/uppercase': 'off',
+    'sonarjs/no-duplicate-string': 'off',
+    'class-methods-use-this': 'off',
+    'sonarjs/prefer-immediate-return': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'sonarjs/no-useless-catch': 'off',
+    'no-useless-catch': 'off',
+    '@darraghor/nestjs-typed/api-property-returning-array-should-set-array': 'off',
+    'no-restricted-syntax': 2,
+    'pii/no-phone-number': 'off',
+    'custom-rules/thrower-error-guard-enum': 'error',
+  },
+  overrides: [
+    {
+      files: ['**/*.spec.ts'],
+      rules: {
+        '@typescript-eslint/dot-notation': 'off', // to test private methods in tests
+      },
+    },
+  ]
+}
+```
