@@ -12,6 +12,7 @@
   "strapi": "Strapi",
   "graphql": "GraphQL",
   "meilisearch": "Meilisearch",
+  "openapi": "OpenAPI client",
   "-- Backend --": {
     "type": "separator"
   },
