@@ -1,12 +1,31 @@
-# Deployment
+# Deployment & Releases
+
+## Production releases
 
 Most of our projects are set up to be dockerized and deployed into our Kubernetes infrastructure. This can be done semi-manually using out [bratiska-cli](https://github.com/bratislava/bratiska-cli) tool, or can be setup using github pipelines. 
 
-## Deploy using pipelines
+### Frontend / Backend apps
 
-TODO
+This assumes Github Actions CI/CD pipeline is in place - every project running in production should have those by now. If this is not the case, one should be setup. Afterwards:
 
-## Deploy using bratiska-cli
+#### Do's and Don'ts
+
+ * ✅ every production deployment should be created using a github "release"
+ * ✅ format of the tag should be prod-(version_number), where version number is an integer. Previously we've used "semver" (in a very broad sense), feel free to change to new format where you see it
+ * ✅ autogenerate release notes. Feel free to add anything relevant on top of those
+ * ✅ release to dev* using the same strategy but marking it as pre-release (feel free to release to dev simply by creating a tag)
+ * ❌ release to prod from your local machine
+ * ❌ release to prod by creating a tag
+
+### Native
+
+TODO - if there's a standard approach we use on multiple native apps, please document here
+
+## Manual deployment using bratiska-cli
+
+<Callout emoji="⚠️" type="warning">
+  In general don't do this - this is either for CI setup or a fallback for emergencies.
+</Callout>
 
 You can find detailed manual & requirements in the [bratiska-cli README](https://github.com/bratislava/bratiska-cli#readme). TLDR:
 
