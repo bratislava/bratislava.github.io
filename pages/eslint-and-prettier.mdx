@@ -208,12 +208,26 @@ Install `@darraghor/eslint-plugin-nestjs-typed` [(source)](https://www.npmjs.com
 yarn add -D @darraghor/eslint-plugin-nestjs-typed
 ```
 
-and add following lines to the config
+and add following values to config.
 
 ```js
 module.exports = {
-    extends: ["plugin:@darraghor/nestjs-typed/recommended"],
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+      project: 'tsconfig.json',
+      tsconfigRootDir: __dirname,
+      sourceType: 'module',
+      ecmaVersion: 2021,
+    },
     plugins: ["@darraghor/nestjs-typed"],
+    extends: ["plugin:@darraghor/nestjs-typed/recommended"],
+    root: true,
+    env: {
+      node: true,
+      jest: true,
+      es2021: true,
+    },
+    ignorePatterns: ['.eslintrc.js'],
 };
 ```
 
