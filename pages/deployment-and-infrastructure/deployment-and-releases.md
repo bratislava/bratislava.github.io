@@ -11,9 +11,21 @@ This assumes Github Actions CI/CD pipeline is in place - every project running i
 #### Do's and Don'ts
 
  * ✅ every production deployment should be created using a github "release"
- * ✅ format of the tag should be prod-(version_number), where version number is an integer. Previously we've used "semver" (in a very broad sense), feel free to change to new format where you see it
+ * ✅ format of the tag created with release is **prod-YY.MMDD.HHMM** i.e. when releasing on May 10, 2024 at 11:00, the tag would be **prod-24.0510.1100** - inspired by https://calver.org/ and https://samver.org/
  * ✅ autogenerate release notes. Feel free to add anything relevant on top of those
  * ✅ release to dev* using the same strategy but marking it as pre-release (feel free to release to dev simply by creating a tag)
+ * ❌ release to prod from your local machine
+ * ❌ release to prod by creating a tag
+
+### Libraries
+
+Github Actions CI/CD pipeline must be in place
+
+#### Do's and Don'ts
+
+ * ✅ every production deployment should be created using a github "release"
+ * ✅ follow format of the tag created with release is prod-(semver) - follow [semver](https://semver.org) strictly
+ * ✅ autogenerate release notes. Feel free to add anything relevant on top of those
  * ❌ release to prod from your local machine
  * ❌ release to prod by creating a tag
 
