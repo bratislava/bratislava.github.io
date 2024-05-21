@@ -19,7 +19,7 @@ This assumes Github Actions CI/CD pipeline is in place - every project running i
  #### PROD deployments
 
  * ✅ Every production deployment should be created using a [GitHub Release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
- * ✅ Format of the tag created with release is **prodMAJOR.MINOR.PATCH** i.e. **prod1.23.0**.
+ * ✅ Format of the tag created with release is **prodMAJOR.MINOR.PATCH** i.e. **prod1.23.0**. When deploying only certain services from a monorepo setup, you can use **prod-service-nameMAJOR.MINOR.PATCH**, i.e. **prod-next1.23.0**.
  * ✅ When releasing a backend consumed by multiple actors, follow [semver](https://semver.org) strictly.
  * ✅ When releasing frontend apps or backends consumed by a single frontend, follow semver loosely - bump patch if it feels like a minor bugfix, minor if it feels like updating features, major to signify major changes. No strict rules about versioning apply in this case.
  * ✅ Always autogenerate release notes. Feel free to add anything relevant on top of those
