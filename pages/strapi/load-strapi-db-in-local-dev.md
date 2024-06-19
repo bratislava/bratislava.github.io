@@ -23,9 +23,11 @@ you can load the dump `newest-db-dump.sql` like so:
 ```
 psql -h localhost -p 5432 -U strapi your_strapi_db < newest-db-dump.sql
 ```
+
 > It's not always necessary, but recommended, to have a role called `strapi` on your local Postgres server when doing this with a Strapi db dump - as the tables may reference role with this name directly. Alternative might be editing the dump and renaming the role referenced to one you have available locally.
 
 ## Docker DB
+
 Commands needed to seed postgres on docker container. Please replace `your_strapi_db` with the strapi db name.
 
 1. Copy dump:
@@ -36,3 +38,7 @@ Commands needed to seed postgres on docker container. Please replace `your_strap
 To login into the db dumped this way, you may need to ask for access from the project lead.
 
 > See [Sync Strapi database to different environment](./sync-strapi-db-to-different-env.md) for guide on dumping live database directly from the server, instead of relying on the regular db dumps in pipeline.
+
+**Note about possible error**
+
+When seeding the database dump, if you encounter `ERROR: constraint ... already exists`, this is possibly a sign of incorrectly loaded data. To fix this, delete the schema `public` and then create a new empty one. Then immediately seed the db again, before running strapi.
