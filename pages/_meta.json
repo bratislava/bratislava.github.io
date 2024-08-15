@@ -17,7 +17,6 @@
     "type": "separator"
   },
   "GINIS": "GINIS",
-  "nestjs": "NestJS",
   "-- DevOps --": {
     "type": "separator"
   },
@@ -25,8 +24,5 @@
   "monitoring-and-observability": "Monitoring & Observability",
   "-- Projects --": {
     "type": "separator"
-  },
-  "bratislava.sk": "bratislava.sk",
-  "konto.bratislava.sk": "konto.bratislava.sk",
-  "muzeumbratislava.sk": "muzeumbratislava.sk"
+  }
 }
